@@ -1,3 +1,38 @@
-body {
-    color: #f76c6c;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Open+Sans:wght@300&display=swap');
+
+:root{
+    --police: 'Montserrat', sans-serif;
+    --primary--color : #E94174;
+    --secondary--color: #8EC475;
+}
+
+/* NavBar*/
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 4vh;
+    margin-top: 2%;
+}
+
+.logo{
+    width: 25%;
+    margin-left: 20px;
+}
+
+ul{
+    display :flex;
+}
+
+li{
+    list-style-type: none;
+}
+
+a{
+    margin-right: 20px;
+}
+
+hr{
+    border: 1px solid rgba(189,195,199, .8);
 }
