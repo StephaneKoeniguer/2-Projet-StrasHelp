@@ -1,0 +1,55 @@
+*{
+    font-family: var(--police);
+}
+
+h1{
+    width: 80%;
+    margin: auto;
+    margin-top: 5%;
+    padding: 2%;
+    font-size: 2em;
+    font-weight: bold;
+    font-family: var(--police);
+    text-align: center;
+    border: 1px solid grey;
+    border-radius: 10px;
+    background: linear-gradient(to left, var(--primary--color), var(--secondary--color ));
+}
+
+form{
+    width: 80%;
+    margin: auto;
+    margin-top: 5%;
+}
+.uk-select{
+    border: 1px solid rgba(189,195,199, .8);
+    border-radius: 10px;
+}
+
+.uk-button{
+    border: 1px solid rgba(189,195,199, .8);
+    border-radius: 10px;
+    width: 100%;
+    background-color: var(--primary--color);
+}
+
+.uk-button:hover{
+    background-color: var(--secondary--color);
+}
+
+label{
+    text-decoration: underline;
+}
+
+
+.uk-card{
+    width: 80%;
+    margin: auto;
+    border: 1px solid rgba(189,195,199, .8);
+    border-radius: 10px;
+}
+
+
+h3, p, .uk-card-footer{
+    text-align: center;
+}

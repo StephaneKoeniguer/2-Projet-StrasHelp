@@ -5,16 +5,23 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="/assets/images/favicon.png">
-
+    
     <title>{% block title %}{% endblock %}</title>
-
+    
+    {% block stylesheet %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.16.15/dist/css/uikit.min.css" />
     <link rel="stylesheet" href="/assets/css/style.css">
-    {% block stylesheet %}{% endblock %}
+    {% endblock %}
 </head>
 
 <body>
+    {% block header %}{% include 'Home/_navbar.html.twig' %}{% endblock %}
     {% block content %}{% endblock %}
-    {% block javascript %}{% endblock %}
+
+    {% block javascript %}
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.16.15/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.16.15/dist/js/uikit-icons.min.js"></script>
+    {% endblock %}
 </body>
 </html>
 
