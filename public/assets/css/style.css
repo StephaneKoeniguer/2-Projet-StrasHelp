@@ -1,14 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Open+Sans:wght@300&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
 
-:root{
-    --police: 'Montserrat', sans-serif;
-    --primary--color : #E94174;
-    --secondary--color: #8EC475;
+:root {
+    --police: "Montserrat", sans-serif;
+    --primary--color: #e94174;
+    --secondary--color: #8ec475;
+    --footer--background: #f7f7f7;
+    --black--color: #000;
+    --white--color: #fff;
 }
 
-/* NavBar*/
+/* ------- NavBar --------*/
 
-.navbar{
+.navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -16,23 +19,34 @@
     margin-top: 2%;
 }
 
-.logo{
+.logo {
     width: 25%;
     margin-left: 20px;
 }
 
-ul{
-    display :flex;
+ul {
+    display: flex;
 }
 
-li{
+li {
     list-style-type: none;
 }
 
-a{
+a {
     margin-right: 20px;
 }
 
-hr{
-    border: 1px solid rgba(189,195,199, .8);
+hr {
+    border: 1px solid rgba(189, 195, 199, 0.8);
+}
+
+/* ------- footer --------*/
+
+footer {
+    background-color: var(--footer--background);
+    border-top: 1px solid rgba(200, 159, 159, 0.205);
+}
+footer a {
+    color: var(--black--color);
+    margin: 0 20px;
 }
