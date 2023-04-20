@@ -14,7 +14,7 @@ h1{
     font-size: 2em;
     font-weight: bold;
     font-family: var(--police);
-    color: var(--text--color);
+    color: var(--white--color);
     text-align: center;
     border: 1px solid rgba(189,195,199 .8);
     border-radius: 10px;
@@ -38,7 +38,7 @@ form{
     border-radius: 10px;
     width: 100%;
     background-color: var(--primary--color);
-    color: var(--text--color);
+    color: var(--white--color);
 }
 
 .uk-button:hover{
@@ -84,6 +84,7 @@ img, .sk-text{
         width: 50%;
         margin-bottom: 5%;
         font-size: 2.5em;
+        color: var(--white--color);
     }
 
     .sk-container-form{
@@ -115,6 +116,7 @@ img, .sk-text{
         width: 50%;
         margin-left: 25%;
         font-size: 1.2em;
+        color: var(--white--color);
     }
 
     .uk-card{
