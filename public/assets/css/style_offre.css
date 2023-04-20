@@ -2,6 +2,10 @@
     font-family: var(--police);
 }
 
+body{
+    height: 100vh;
+}
+
 h1{
     width: 80%;
     margin: auto;
@@ -10,11 +14,14 @@ h1{
     font-size: 2em;
     font-weight: bold;
     font-family: var(--police);
+    color: var(--white--color);
     text-align: center;
-    border: 1px solid grey;
+    border: 1px solid rgba(189,195,199 .8);
     border-radius: 10px;
-    background: linear-gradient(to left, var(--primary--color), var(--secondary--color ));
+    background: var(--primary--color);
 }
+
+/* Formulaire */
 
 form{
     width: 80%;
@@ -31,16 +38,25 @@ form{
     border-radius: 10px;
     width: 100%;
     background-color: var(--primary--color);
+    color: var(--white--color);
 }
 
 .uk-button:hover{
-    background-color: var(--secondary--color);
+    background-color: #c31f50;
+    color: var(--text--color);
 }
 
 label{
     text-decoration: underline;
+    color: black;
 }
 
+
+/* Card */
+
+.sk-container{
+    height: 35vh;
+}
 
 .uk-card{
     width: 80%;
@@ -49,7 +65,73 @@ label{
     border-radius: 10px;
 }
 
+.uk-card-body{
+    padding: 10%;
+}
 
 h3, p, .uk-card-footer{
     text-align: center;
+}
+
+img, .sk-text{
+    display: none;
+}
+
+
+@media (min-width: 768px){
+
+    h1{
+        width: 50%;
+        margin-bottom: 5%;
+        font-size: 2.5em;
+        color: var(--white--color);
+    }
+
+    .sk-container-form{
+        width: 100%;
+        background-color: #F7F7F7;
+        border-radius: 10px;
+        display: flex;
+    }
+
+    form{
+        margin-left: 20%;
+    }
+
+    img{
+        display: block;
+        width:50%;
+        margin-left: 10%;
+        border-radius: 40px;
+    }
+
+    .sk-text{
+        display: block;
+        width: 50%;
+        margin-left: 15%;
+        text-align: left;
+    }
+
+    .uk-button{
+        width: 50%;
+        margin-left: 25%;
+        font-size: 1.2em;
+        color: var(--white--color);
+    }
+
+    .uk-card{
+        height: 40%;
+        margin-top: 5%;
+        display: flex;
+        align-items: center;
+    } 
+
+    .uk-card-header{
+        border-right: 1px solid rgba(189,195,199, .8);
+    }
+
+    .uk-card-footer{
+        border-left: 1px solid rgba(189,195,199, .8);
+    }
+    
 }
