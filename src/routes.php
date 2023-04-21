@@ -18,5 +18,5 @@ return [
     'offre' => ['OffreController', 'index'],
     'depot' => ['DeposerOffreController', 'index'],
     'contact' => ['MailController', 'mail'],
-
+    'login' => ['HomeController', 'login'],
 ];
