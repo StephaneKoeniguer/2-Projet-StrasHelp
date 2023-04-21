@@ -1,0 +1,35 @@
+:root {
+  --hover--color: #c31f50;
+
+  --spacing: 8px;
+
+}
+
+/* Typographie */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
+
+/* Titre */
+.uk-card-title {
+  
+  font-weight: 700;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  text-transform: uppercase;
+  color: var(--white--color) !important;
+  background-color: var(--primary--color);
+  border-radius: var(--spacing) var(--spacing) 0 0;
+  padding: var(--spacing) 0;
+}
+.uk-button {
+  background-color: var(--primary--color);
+  color: var(--white--color);
+  border-radius: var(--spacing);
+  outline: none;
+}
+.uk-button:hover {
+  transition: 0.3s ease;
+  background-color: var(--hover--color);
+  color: var(--white--color);
+}
+

@@ -15,6 +15,6 @@ return [
     'items/delete' => ['ItemController', 'delete',],
     'categorie' => ['CategorieController', 'index'],
     'categorie/add' => ['CategorieController', 'add'],
-
+    'offre' => ['OffreController', 'index'],
 
 ];

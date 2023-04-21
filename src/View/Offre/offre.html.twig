@@ -1,0 +1,55 @@
+{% extends 'layout.html.twig' %}
+
+{% block stylesheet %}
+{{parent()}}
+<link rel="stylesheet" href="/assets/css/style_offre.css">
+{% endblock %}
+
+{% block content %}
+
+<h1>Rechercher une offre</h1>
+
+<form>
+    <label for="categorie">Catégorie</label>
+        <div class="uk-margin">
+            <select for="categorie" class="uk-select" aria-label="Select" name="categorie">
+                <option>Option 01</option>
+                <option>Option 02</option>
+            </select>
+        </div>
+ 
+   
+    <label for="zoneintervention">Zone d'intervention</label>
+        <div class="uk-margin">
+            <select for="zoneintervention" class="uk-select" aria-label="Select" name="zoneintervention">
+                <option>Option 01</option>
+                <option>Option 02</option>
+            </select>
+        </div>
+   
+
+    <label for="disponibilites">Disponibilités</label>
+        <div class="uk-margin">
+            <select for="disponibilites" class="uk-select" aria-label="Select" name="disponibilites">
+                <option>Option 01</option>
+                <option>Option 02</option>
+            </select>
+        </div>
+    <button class="uk-button uk-button-default">Valider</button>
+</form>
+
+
+<div class="uk-card uk-card-default uk-margin">
+    <div class="uk-card-header">
+        <h3 class="uk-margin-remove-bottom">Titre</h3>
+        <p class="uk-margin-remove-top">Prix</p>
+    </div>
+    <div class="uk-card-body">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+    </div>
+    <div class="uk-card-footer">
+        <p>Note</p>
+    </div>
+</div>
+
+{% endblock %}

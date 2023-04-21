@@ -1,6 +1,41 @@
 {% extends 'layout.html.twig' %}
+{% block stylesheet %}
+{{parent()}}
+<link rel="stylesheet" href="/assets/css/style_Index.css">
+
+{% endblock %}
 
 {% block content %}
-    <h1>Hello Wilder !</h1>
-    <p>Find a complete CRUD example on <a href="/items">/items</a> page.</p>
+     <main>
+            <div class="text-bx">
+                <h1> Qui suis-je : </h1>
+                <p>
+                     Notre association a pour but de favoriser les échanges non marchands de services de proximité ( comme le bricolage,
+                     la cuisine, l’éducation) entre associations et particuliers. 
+                     Nous offrons à nos membres la possibilité d’offrir leurs services et savoir-faire, tandis que d’autres membres peuvent en faire la demande.
+                     Les objectifs de notre site Web sont simples : fournir une plate-forme permettant aux utilisateurs de publier leurs offres de services 
+                     ( y compris les informations de contact, les catégories, la disponibilité et les zones de service), de rechercher parmi les offres existantes et de prendre contact les uns avec les autres. Nous avons également un système de back-office pratique pour gérer les offres.
+                </b>
+
+                </p>
+
+                <div class="input-bx">
+                    <button class="botao">Rechercher une offre</button>
+                    <button class="botao">Déposer une offre</button>
+                </div>
+
+                
+            </div>
+
+
+            <div class="img-bx">
+                <img src="assets/images/volunteers-teaming-up-organize-donations-charity.jpg">
+            </div>
+        </main>
+    </div>
+
+    {% include 'component/_formHome.html.twig' %}
 {% endblock %}
+
+
+ 
