@@ -7,49 +7,91 @@
 
 {% block content %}
 
-<h1>Rechercher une offre</h1>
+<h1>Besoin d'aide ?</h1>
+<div class="sk-container-form">
+    <form action="#" method="POST">
+        <label for="categorie">Catégorie</label>
+            <div class="uk-margin">
+                <select for="categorie" class="uk-select" aria-label="Select" name="categorie">
+                    <option>Option 01</option>
+                    <option>Option 02</option>
+                </select>
+            </div>
+    
+    
+        <label for="zoneintervention">Zone d'intervention</label>
+            <div class="uk-margin">
+                <select for="zoneintervention" class="uk-select" aria-label="Select" name="area">
+                    <option>Option 01</option>
+                    <option>Option 02</option>
+                </select>
+            </div>
+    
 
-<form>
-    <label for="categorie">Catégorie</label>
-        <div class="uk-margin">
-            <select for="categorie" class="uk-select" aria-label="Select" name="categorie">
-                <option>Option 01</option>
-                <option>Option 02</option>
-            </select>
-        </div>
- 
-   
-    <label for="zoneintervention">Zone d'intervention</label>
-        <div class="uk-margin">
-            <select for="zoneintervention" class="uk-select" aria-label="Select" name="zoneintervention">
-                <option>Option 01</option>
-                <option>Option 02</option>
-            </select>
-        </div>
-   
-
-    <label for="disponibilites">Disponibilités</label>
-        <div class="uk-margin">
-            <select for="disponibilites" class="uk-select" aria-label="Select" name="disponibilites">
-                <option>Option 01</option>
-                <option>Option 02</option>
-            </select>
-        </div>
-    <button class="uk-button uk-button-default">Valider</button>
-</form>
-
-
-<div class="uk-card uk-card-default uk-margin">
-    <div class="uk-card-header">
-        <h3 class="uk-margin-remove-bottom">Titre</h3>
-        <p class="uk-margin-remove-top">Prix</p>
-    </div>
-    <div class="uk-card-body">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
-    </div>
-    <div class="uk-card-footer">
-        <p>Note</p>
+        <label for="disponibilites">Disponibilités</label>
+            <div class="uk-margin">
+                <select for="disponibilites" class="uk-select" aria-label="Select" name="disponibilites">
+                    <option>Option 01</option>
+                    <option>Option 02</option>
+                </select>
+            </div>
+        <button class="uk-button uk-button-default uk-margin">Valider</button>
+    </form>
+    <div>
+        <img src="assets/images/pictureoffre.png" alt="image terre portée par des mains">
+        <p class="sk-text">Nous vous aidons à aider les autres.<br>
+         Échangez vos compétences avec votre voisinage grâce à notre association !</p>
     </div>
 </div>
+    <div class="uk-margin uk-visible@m" >
+        <div class="sk-container">
+            <div class="uk-card">
+                <div class="uk-card-header">
+                    <h3 class="uk-margin-remove-bottom">Titre</h3>
+                    <p class="uk-margin-remove-top">Prix</p>
+                </div>
+                <div class="uk-card-body">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+                </div>
+                <div class="uk-card-footer">
+                    <h3 class="uk-margin-remove-bottom">Note</h3>
+                    <p class="uk-margin-remove-top"> test</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="uk-margin uk-hidden@m" uk-slideshow>
+        <div class="sk-container uk-slideshow-items">
+            <div class="uk-card uk-card-default">
+                <div class="uk-card-header">
+                    <h3 class="uk-margin-remove-bottom">Titre</h3>
+                    <p class="uk-margin-remove-top">Prix</p>
+                </div>
+                <div class="uk-card-body">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+                </div>
+                <div class="uk-card-footer">
+                    <p>Note</p>
+                </div>
+                <a class="uk-position-center-left uk-hidden-hover" href="#" uk-slidenav-previous uk-slideshow-item="previous"></a>
+                <a class="uk-position-center-right uk-hidden-hover" href="#" uk-slidenav-next uk-slideshow-item="next"></a>
+            </div>
+
+             <div class="uk-card uk-card-default">
+                <div class="uk-card-header">
+                    <h3 class="uk-margin-remove-bottom">Titre</h3>
+                    <p class="uk-margin-remove-top">Prix</p>
+                </div>
+                <div class="uk-card-body">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+                </div>
+                <div class="uk-card-footer">
+                    <p>Note</p>
+                </div>
+                <a class="uk-position-center-left uk-hidden-hover" href="#" uk-slidenav-previous uk-slideshow-item="previous"></a>
+                <a class="uk-position-center-right uk-hidden-hover" href="#" uk-slidenav-next uk-slideshow-item="next"></a>
+            </div>
+        </div>
+    </div>
 
 {% endblock %}
