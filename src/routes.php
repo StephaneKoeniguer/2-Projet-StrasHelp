@@ -16,5 +16,6 @@ return [
     'categorie' => ['CategorieController', 'index'],
     'categorie/add' => ['CategorieController', 'add'],
     'offre' => ['OffreController', 'index'],
+    'depot' => ['DeposerOffreController', 'index'],
 
 ];

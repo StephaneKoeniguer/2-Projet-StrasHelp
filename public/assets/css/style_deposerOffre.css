@@ -1,0 +1,72 @@
+.paragraphe {
+    text-align: center;
+    margin: 10px 30px 0 20px;
+    border: 1px black solid;
+    border-radius: 8px 8px 0 0;
+    background-color: #e94174;
+}
+
+h1 {
+    color: white;
+}
+
+p {
+    text-align: center;
+    text-align: justify;
+    padding: 0 40px;
+    margin: 10px auto 0;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 80%;
+    margin: 20px auto;
+}
+
+.uk-input,
+#message,
+.uk-button {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.uk-button {
+    background-color: #e94174;
+    border-radius: 8px 8px 0 0;
+    margin-bottom: 20px;
+}
+
+@media screen and (min-width: 768px) {
+    body {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        flex-direction: column;
+    }
+
+    .contenu_cedric {
+        display: flex;
+    }
+
+    p {
+        flex: 0 0 calc(50% - 70px);
+        margin: 70px 30px 0 40px;
+    }
+
+    form {
+        flex: 0 0 calc(40% - 15px);
+    }
+}
+
+.capsule_image {
+    width: 50%;
+    margin: 0 auto;
+}
+
+@media only screen and (max-width: 768px) {
+    .capsule_image {
+        display: none;
+    }
+}
