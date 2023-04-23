@@ -18,7 +18,7 @@
   border: none;
   outline: none;
   cursor: pointer;
-  border-radius: 50px;
+  border-radius: 15px;
   box-shadow: 2px 2px 5px #8ec475,
               -5px -5px 10px #ffffff73;
 }
@@ -55,7 +55,6 @@ nav{
     height: 100px;
     background-color: #F7F7F7;
     padding: 0 0;
-    border-bottom: 1px solid rgba(200, 159, 159, 0.205);
     
 }
 nav .menu-icon{
@@ -176,12 +175,7 @@ main{
     cursor: pointer;
     font-size: 15px;
 }
-.medias-socias{
-    margin-top: 30px;
-}
-.medias-socias a{
-    text-decoration: none;
-}
+
 
 
 .img-bx{
@@ -195,7 +189,11 @@ main{
     
 } 
 @media (max-width:768px) {
-    
+    nav .menu-icon{
+        display: flex;
+        width: 30%;
+        justify-content: center;
+    }
     
     main{
         flex-direction: column;
@@ -209,7 +207,21 @@ main{
         margin-bottom: 40px;
     }
     .text-bx .input-bx{
+        display: flex;
         justify-content: center;
+    }
+
+    .button{
+        margin: 5% 5%;
+    }
+    
+    .logo {
+      width: 40% ;
+    }
+
+    .botao {
+        margin-right: 5%;
+        margin-left: 5%;
     }
     
         
