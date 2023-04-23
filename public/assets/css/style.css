@@ -9,37 +9,6 @@
     --white--color: #fff;
 }
 
-/* ------- NavBar --------*/
-
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 4vh;
-    margin-top: 2%;
-}
-
-.logo {
-    width: 25%;
-    margin-left: 20px;
-}
-
-ul {
-    display: flex;
-}
-
-li {
-    list-style-type: none;
-}
-
-a {
-    margin-right: 20px;
-}
-
-hr {
-    border: 1px solid rgba(189, 195, 199, 0.8);
-}
-
 /* ------- footer --------*/
 
 footer {
