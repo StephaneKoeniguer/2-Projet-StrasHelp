@@ -11,8 +11,6 @@
 
 /* ------- NavBar --------*/
 
-
-
 .botao{
   
   
@@ -111,11 +109,8 @@
       text-decoration: none !important;
       text-transform: uppercase;
       font-size: 17px;
-  
-  
   } 
-
-
+  
   .modal{
     z-index:1;
     position: fixed;
@@ -133,6 +128,7 @@
     transform: scale(1.1);
     transition: visibility 0.25s ease-in-out , opacity 0.25s ease-in-out, transform 0.25s ease-in-out;   
 }
+
 @media (max-width:768px) {
     nav .menu-icon{
         display: block;
