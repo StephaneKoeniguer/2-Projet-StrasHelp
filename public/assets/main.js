@@ -14,10 +14,10 @@ var iconMenu = document.querySelector('nav .menu-icon img');
 
 menuBar.addEventListener('click',function(){
 
-    if (iconMenu.getAttribute("src") == 'assets/menu.png') {
-        iconMenu.setAttribute("src","assets/close.png");
+    if (iconMenu.getAttribute("src") == 'assets/images/menu.png') {
+        iconMenu.setAttribute("src","assets/images/close.png");
     }else{
-        iconMenu.setAttribute("src","assets/menu.png");
+        iconMenu.setAttribute("src","assets/images/menu.png");
     }
 
    menu.classList.toggle('active');
