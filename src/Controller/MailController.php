@@ -5,7 +5,6 @@ namespace App\Controller;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-
 class MailController extends AbstractController
 {
     private PHPmailer $mail;
@@ -21,7 +20,7 @@ class MailController extends AbstractController
         $this->mail->Username   =  'skoeniguer@free.fr';        //Adresse email à utiliser
         $this->mail->Password   =  'stephane';                  //Mot de passe de l'adresse email à utiliser
 
-        if ($this->mail->smtpConnect()) {                       // Test la connecxion
+        if ($this->mail->smtpConnect()) {                       // Test la connection
             return true;
         } else {
             return false;
@@ -63,8 +62,5 @@ class MailController extends AbstractController
             $errors[] = $this->mail->ErrorInfo;
         }
         return $this->twig->render('component/_popUpMessage.html.twig');
-        
     }
-
-
 }

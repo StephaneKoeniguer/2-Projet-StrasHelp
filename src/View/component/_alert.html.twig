@@ -1,0 +1,15 @@
+{% extends "layout.html.twig" %}
+
+
+{% block content %}
+<div class="uk-alert-primary" uk-alert>
+    <a class="uk-alert-close" uk-close></a>
+    <p>Votre note à bien été prise en compte</p>
+</div>
+
+<div class="uk-alert-danger" uk-alert>
+    <a class="uk-alert-close" uk-close></a>
+    <p>Vous ne pouvez pas attribuer de note à cette offre</p>
+</div>
+
+{% endblock %}

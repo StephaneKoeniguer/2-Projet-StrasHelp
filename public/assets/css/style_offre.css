@@ -77,6 +77,10 @@ img, .sk-text{
     display: none;
 }
 
+.sk-note:hover{
+    color: rgb(207, 207, 29);
+}
+
 
 @media (min-width: 768px){
 
@@ -132,6 +136,10 @@ img, .sk-text{
 
     .uk-card-footer{
         border-left: 1px solid rgba(189,195,199, .8);
+    }
+
+    .sk-star{
+        display: flex;
     }
     
 }
