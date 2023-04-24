@@ -130,6 +130,12 @@
     transition: visibility 0.25s ease-in-out , opacity 0.25s ease-in-out, transform 0.25s ease-in-out;   
 }
 
+.show-modal{
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1.0);    
+  }
+
 @media (max-width:768px) {
     
     nav .menu-icon{
