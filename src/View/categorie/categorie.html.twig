@@ -1,0 +1,16 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <form class="uk-form-stacked" action="categorie/add" method="POST">
+
+    <div class="uk-margin">
+        <label class="uk-form-label" for="categorie">Catégorie</label>
+        <div class="uk-form-controls">
+            <input class="uk-input" id="categorie" name="categorie" type="text" placeholder="Some text...">
+        </div>
+    </div>
+    
+    <button class="uk-button uk-button-secondary">Secondary</button>
+
+</form>
+{% endblock %}
