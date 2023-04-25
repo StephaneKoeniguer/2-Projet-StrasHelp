@@ -8,6 +8,7 @@ use PHPMailer\PHPMailer\Exception;
 class MailController extends AbstractController
 {
     private PHPmailer $mail;
+    private array $errors;
 
     private function validateConnexion(): bool
     {
@@ -32,18 +33,7 @@ class MailController extends AbstractController
         $errors = [];
         $data = array_map('trim', $_GET);
         $this->mail = new PHPmailer();
-        if ($_SERVER['REQUEST_METHOD'] === 'GET' && $this->validateConnexion()) {
-            if (!isset($data['name']) || empty($data['name'])) {
-                $errors[] = "Veuillez saisir un nom";
-            }
-            if (!isset($data['email']) || empty($data['email']) || !filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
-                $errors[] = "Veuillez saisir un email valide";
-            }
-            if (!isset($data['content']) || empty($data['content'])) {
-                $errors[] = "Veuillez saisir votre message";
-            }
-
-            if (empty($errors)) {
+        if ($_SERVER['REQUEST_METHOD'] === 'GET' && $this->validateConnexion() && $this->isValide($_GET)) {
                 $this->mail->From = trim($data['email']);
                 $this->mail->AddAddress('');                  //email du destinataire
                 $this->mail->Subject = ("Formulaire de contact Stras'Help");    //Le sujet du mail
@@ -53,14 +43,29 @@ class MailController extends AbstractController
                 $this->mail->MsgHTML($data['content']);                         //Forcer le contenu
 
                 if (!$this->mail->send()) {
-                    $errors[] = $this->mail->ErrorInfo;
+                    $this->errors[] = $this->mail->ErrorInfo;
                 } else {
                     header('location: /contact');
                 }
-            }
         } else {
-            $errors[] = $this->mail->ErrorInfo;
+            $this->errors[] = $this->mail->ErrorInfo;
         }
         return $this->twig->render('Home/index.html.twig');
+    }
+
+    private function isValide(array $data) 
+    {
+        if (!isset($data['name']) || empty($data['name'])) {
+            $this->errors[] = "Veuillez saisir un nom";
+        }
+        if (!isset($data['email']) || empty($data['email']) || !filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
+            $this->errors[] = "Veuillez saisir un email valide";
+        }
+        if (!isset($data['content']) || empty($data['content'])) {
+            $this->errors[] = "Veuillez saisir votre message";
+        }
+
+        return $this->errors ? false:true;
+
     }
 }
