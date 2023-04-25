@@ -30,7 +30,6 @@ class MailController extends AbstractController
 
     public function mail(): string
     {
-        $errors = [];
         $data = array_map('trim', $_GET);
         $this->mail = new PHPmailer();
         if ($_SERVER['REQUEST_METHOD'] === 'GET' && $this->validateConnexion() && $this->isValide($_GET)) {
@@ -42,18 +41,18 @@ class MailController extends AbstractController
                 $this->mail->IsHTML(false);                                     //Il faut utiliser le texte brut
                 $this->mail->MsgHTML($data['content']);                         //Forcer le contenu
 
-                if (!$this->mail->send()) {
-                    $this->errors[] = $this->mail->ErrorInfo;
-                } else {
-                    header('location: /contact');
-                }
+            if (!$this->mail->send()) {
+                $this->errors[] = $this->mail->ErrorInfo;
+            } else {
+                header('location: /contact');
+            }
         } else {
             $this->errors[] = $this->mail->ErrorInfo;
         }
         return $this->twig->render('Home/index.html.twig');
     }
 
-    private function isValide(array $data) 
+    private function isValide(array $data)
     {
         if (!isset($data['name']) || empty($data['name'])) {
             $this->errors[] = "Veuillez saisir un nom";
@@ -65,7 +64,6 @@ class MailController extends AbstractController
             $this->errors[] = "Veuillez saisir votre message";
         }
 
-        return $this->errors ? false:true;
-
+        return $this->errors ? false : true;
     }
 }
