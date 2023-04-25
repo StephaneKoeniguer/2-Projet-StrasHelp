@@ -8,7 +8,7 @@ class CategorieController extends AbstractController
 {
     public function index(): string
     {
-        return $this->twig->render('categorie/categorie.html.twig');
+        return $this->twig->render('Home/index.html.twig');
     }
 
     public function add(): ?string
@@ -19,9 +19,9 @@ class CategorieController extends AbstractController
             $categorieManager = new CategorieManager();
             $categorieManager->insert($categorie);
 
-            return $this->twig->render('categorie/categorie.html.twig');
+            return $this->twig->render('Home/index.html.twig');
         }
 
-        return $this->twig->render('categorie/categorie.html.twig');
+        return $this->twig->render('Home/index.html.twig');
     }
 }
