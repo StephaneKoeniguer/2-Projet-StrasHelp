@@ -18,4 +18,6 @@ return [
     'offre' => ['OffreController', 'index'],
     'depot' => ['DeposerOffreController', 'index'],
     'login' => ['LoginController', 'login'],
+    'mesoffres' => ['MesOffresController', 'index'],
+
 ];
