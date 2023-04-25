@@ -1,3 +1,5 @@
+
+// display modal login
 function showModal() {
     var element = document.getElementById("modal");
     element.classList.add("show-modal");
@@ -19,5 +21,7 @@ menuBar.addEventListener("click", function () {
         iconMenu.setAttribute("src", "assets/images/menu.png");
     }
 
-    menu.classList.toggle("active");
+   menu.classList.toggle('active');
 });
+
+

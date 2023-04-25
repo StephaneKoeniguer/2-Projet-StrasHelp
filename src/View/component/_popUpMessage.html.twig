@@ -1,0 +1,22 @@
+
+<link rel="stylesheet" href="assets/css/style_HomePopUpMessage.css">
+
+<div id="content">
+  <div class="modal-content">
+    <span class="close-button" onclick="hiddenModalContact()">&times;</span>
+        <img src="assets/images/logo-stras-hel-final_720.png">
+          <div class="text">Formulaire de contact</div>
+            <form action="contact" method="GET">
+                <div class="field">
+                  <input type="text" placeholder="Nom" maxlenght="30" name="name">
+                </div>
+                <div class="field"> 
+                  <input type="email" placeholder="exemple@gmail.com" maxlenght="30" required name="email">
+                </div>
+                <div class="field">
+                  <textarea placeholder="Votre message" maxlenght="200" required name="content"></textarea>
+                </div>
+                <button>Envoyer</button>
+             </form>
+    </div>
+</div>

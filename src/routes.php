@@ -17,7 +17,8 @@ return [
     'categorie/add' => ['CategorieController', 'add'],
     'offre' => ['OffreController', 'index'],
     'depot' => ['DeposerOffreController', 'index'],
-    'CreateUser' => ['CreateUserController', 'register'],
+    'contact' => ['MailController', 'mail'],
+    'note' => ['NoteController', 'add'],
     'mesoffres' => ['MesOffresController', 'index'],
 
 ];
