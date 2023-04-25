@@ -23,7 +23,7 @@ h1{
 
 /* Formulaire */
 
-form{
+.sk-form{
     width: 80%;
     margin: auto;
     margin-top: 5%;
@@ -73,7 +73,7 @@ h3, p, .uk-card-footer{
     text-align: center;
 }
 
-img, .sk-text{
+.sk-img, .sk-text{
     display: none;
 }
 
@@ -98,11 +98,11 @@ img, .sk-text{
         display: flex;
     }
 
-    form{
+    .sk-form{
         margin-left: 20%;
     }
 
-    img{
+    .sk-img{
         display: block;
         width:50%;
         margin-left: 10%;
