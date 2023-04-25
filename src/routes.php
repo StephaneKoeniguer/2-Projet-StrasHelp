@@ -19,4 +19,6 @@ return [
     'depot' => ['DeposerOffreController', 'index'],
     'contact' => ['MailController', 'mail'],
     'note' => ['NoteController', 'add'],
+    'mesoffres' => ['MesOffresController', 'index'],
+
 ];
