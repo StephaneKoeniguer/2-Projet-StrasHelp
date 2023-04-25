@@ -5,6 +5,7 @@ namespace App\Controller;
 use Twig\Environment;
 use Twig\Extension\DebugExtension;
 use Twig\Loader\FilesystemLoader;
+use App\Model\UserManager;
 
 /**
  * Initialized some Controller common features (Twig...)
@@ -12,7 +13,6 @@ use Twig\Loader\FilesystemLoader;
 abstract class AbstractController
 {
     protected Environment $twig;
-
 
     public function __construct()
     {
