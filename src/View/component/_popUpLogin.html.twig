@@ -1,33 +1,33 @@
-<div class="content">
+
+{% block stylesheet %}
+  <link rel="stylesheet" href="assets/css/style_HomePupUpMessage.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+{% endblock %}
+
+
+
+<div id="contentlogin">
       <div class="modal-content">
-        <span class="close-button" onclick="closeModal()">
-            &times;
-        </span>
+        <span class="close-button" onclick="hiddenModalLogin()">&times;</span>
         <img src="/assets/images/logo-stras-hel-final_720.png">
-             <div class="text">Stras Help</div>
-             <form action="#" method="POST">
+             <div class="text">Login</div>
+             <form action="login" method="POST">
                <div class="field">
                  <span class="fa fa-user"></span>
-                 <input type="text" required>
-                 <label>Email </label>
+                 <input placeholder="login" type="email" required>
                </div>
                <div class="field">
                  <span class="fa fa-lock"></span>
-                 <input type="password">
-                 <label>Password</label>
+                 <input placeholder="Password" type="password">
                </div>
                
-               <button>Log in</button>
+               <button>Connexion</button>
+
                <div class="or">Or</div>
-               <div class="icon-button"> 
-                   
-                 <span class="facebook"><i class="fa fa-facebook"></i>  Facebook</span>
-       
-                 <span><i class="fa fa-google"></i>  Google</span>
+                <div class="icon-button">    
+                  <span class="facebook"><i class="fa fa-facebook"></i> Facebook</span>
+                  <span><i class="fa fa-google"></i> Google</span>
                 </div>
              </form>
-         </div>
- {% block stylesshet %}
-<link rel="stylesheet" href="assets/css/style_HomePopUp.css">
-{% endblock %}
-
+      </div>
+</div>

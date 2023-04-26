@@ -15,10 +15,11 @@ return [
     'items/delete' => ['ItemController', 'delete',],
     'categorie' => ['CategorieController', 'index'],
     'categorie/add' => ['CategorieController', 'add'],
-    'offre' => ['OffreController', 'index'],
-    'depot' => ['DeposerOffreController', 'index'],
+    'offre' => ['OffreController', 'index',],
+    'search' => ['OffreController', 'search'],
+    'depot' => ['DeposerOffreController', 'index',],
     'contact' => ['MailController', 'mail'],
     'note' => ['NoteController', 'add'],
     'mesoffres' => ['MesOffresController', 'index'],
-
+    
 ];
