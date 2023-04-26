@@ -12,5 +12,4 @@ class CategorieManager extends AbstractManager
         $statement->bindValue('description', $categorie['categorie'], PDO::PARAM_STR);
         $statement->execute();
     }
-
 }

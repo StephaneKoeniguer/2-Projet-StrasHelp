@@ -7,7 +7,6 @@ db.php
 .vscode
 .DS_Store
 style_HomePopUp.css
-OffreController.php
 NoteController.php
 NoteManager.php
 OffreManager.php
