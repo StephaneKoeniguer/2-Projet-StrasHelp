@@ -10,7 +10,6 @@ class CategorieManager extends AbstractManager
     {
         $statement = $this->pdo->prepare("INSERT INTO categorie (description)  VALUES (:description)");
         $statement->bindValue('description', $categorie['categorie'], PDO::PARAM_STR);
-
         $statement->execute();
     }
 }

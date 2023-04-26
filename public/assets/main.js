@@ -1,13 +1,11 @@
 
 // display modal login
-function showModal() {
-    var element = document.getElementById("modal");
-    element.classList.add("show-modal");
+function displayModalLogin() {
+    document.getElementById("contentlogin").style.display= "block"; 
 }
 
-function closeModal() {
-    var element = document.getElementById("modal");
-    element.classList.remove("show-modal");
+function hiddenModalLogin(){
+    document.getElementById("contentlogin").style.display= "none";
 }
 
 // Display modal contact

@@ -2,7 +2,7 @@
     <div class="uk-card uk-card-default uk-card-body uk-width-1-2@m uk-margin-auto uk-margin-large-top">
         <h3 class="uk-card-title uk-text-center">Connectez-vous avec votre communauté</h3>
         <div class="uk-text-default uk-text-bold uk-margin-top uk-margin-bottom">Créez des liens avec votre communauté par le biais d'échanges non marchands.</div>
-        <form>
+        <form action="createUser" method="POST">
             <div class="uk-grid uk-flex-column uk-flex-middle" uk-grid>
             <div class="uk-width-1-1">
                 <label for="prenom">Prénom</label>
@@ -15,6 +15,18 @@
             <div class="uk-width-1-1">
                 <label for="password">Password</label>
                 <input class="uk-input" type="password" name="password" id="password" required>
+            </div>
+            <div class="uk-width-1-1">
+                <label for="description">Description</label>
+                <input class="uk-input" type="text" name="description" id="description" required>
+            </div>
+            <div class="uk-width-1-1">
+                <label for="adresse">Adresse</label>
+                <input class="uk-input" type="text" name="adresse" id="adresse" required>
+            </div>
+            <div class="uk-width-1-1">
+                <label for="date">Date de création</label>
+                <input class="uk-input" type="date" name="date" id="date" required>
             </div>
             <div class="uk-width-1-1">
                 <label for="type">Type</label><br>

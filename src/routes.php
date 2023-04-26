@@ -18,6 +18,7 @@ return [
     'offre' => ['OffreController', 'index'],
     'depot' => ['DeposerOffreController', 'index'],
     'depot/add' => ['DeposerOffreController', 'add'],
+    'search' => ['OffreController', 'search'],
     'contact' => ['MailController', 'mail'],
     'note' => ['NoteController', 'add'],
     'mesoffres' => ['MesOffresController', 'index'],
