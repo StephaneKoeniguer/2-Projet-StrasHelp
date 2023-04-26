@@ -6,7 +6,4 @@ db.php
 .idea
 .vscode
 .DS_Store
-style_HomePopUp.css
-NoteController.php
-NoteManager.php
-OffreManager.php
+
