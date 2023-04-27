@@ -22,11 +22,11 @@ class NoteController extends AbstractController
     {
         $userAutorise = $this->noteManager->selectById($userId, $offreId);
 
-            if ($userAutorise == true || in_array($userId, $userAutorise)) {
-                return true;
-            } else {
-                return false;
-            }
+        if ($userAutorise == true || in_array($userId, $userAutorise)) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
 

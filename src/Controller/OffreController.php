@@ -7,7 +7,6 @@ use App\Model\NoteManager;
 
 class OffreController extends AbstractController
 {
-    
     /*private ?NoteManager $noteManager;
       private ?OffreManager $offreManager;
       private array $categorie;
@@ -24,7 +23,7 @@ class OffreController extends AbstractController
         $this->availability = $offreManager->selectAvailability();
         $this->notesAverage = $noteManager->noteAverage();
     }*/
-    
+
     public function index(): string
     {
         $offreManager = new OffreManager();
@@ -41,8 +40,10 @@ class OffreController extends AbstractController
 
     private function validate(array $data): bool
     {
-        if ($data['categorie'] == 'Veuillez Choisir' && $data['area'] == 'Veuillez Choisir' &&
-            $data['disponibilites'] == 'Veuillez Choisir') {
+        if (
+            $data['categorie'] == 'Veuillez Choisir' && $data['area'] == 'Veuillez Choisir' &&
+            $data['disponibilites'] == 'Veuillez Choisir'
+        ) {
             return false;
         } else {
             return true;

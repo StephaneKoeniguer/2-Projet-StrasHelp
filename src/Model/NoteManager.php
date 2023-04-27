@@ -39,11 +39,10 @@ class NoteManager extends AbstractManager
     /**
      * Search note average in database
      */
-    public function noteAverage():array
+    public function noteAverage(): array
     {
         $query = 'SELECT offre_id, round(avg(note),1) as moyenne FROM ' . self::TABLE .
          ' INNER JOIN offre on offre.id = note.offre_id GROUP BY offre_id';
         return $statement = $this->pdo->query($query)->fetchAll();
     }
-
 }
