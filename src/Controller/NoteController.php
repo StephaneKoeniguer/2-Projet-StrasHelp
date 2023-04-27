@@ -20,29 +20,23 @@ class NoteController extends AbstractController
 
     public function validate(int $userId, int $offreId): bool
     {
-        $requete = $this->noteManager->selectById($userId, $offreId);
-        foreach ($requete as $key => $rowtable) {
-            if (in_array($_SESSION['id'], $rowtable)) {
+        $userAutorise = $this->noteManager->selectById($userId, $offreId);
+
+            if ($userAutorise == true || in_array($userId, $userAutorise)) {
                 return true;
+            } else {
+                return false;
             }
-        }
-        return false;
     }
 
 
     public function add(): void
     {
-
-
-
-        $_SESSION['id'] = 2;    //A affecter dans la fonction login
+        $_SESSION['user_id'] = 1;    //A affecter dans la fonction login
 
         $note = array_map('trim', $_GET);
-
-        $note['offre_id'] = 2 ; //A récupérer du lien page offre
-        $note['note'] = $note['note'];
         $note['date'] = $this->date->format('Y/m/d');
-        $note['user_id'] = $_SESSION['id'];
+        $note['user_id'] = $_SESSION['user_id'];
 
         if (isset($note) && !empty($note) && !$this->validate($note['user_id'], $note['offre_id'])) {
             $this->noteManager->insert($note);
@@ -53,6 +47,7 @@ class NoteController extends AbstractController
             //$this->twig->render('component/_alert.html.twig');
             echo 'error';
             var_dump($note);
+            die();
         }
     }
 }
