@@ -8,7 +8,6 @@ function hiddenModalLogin(){
     document.getElementById("contentlogin").style.display= "none";
 }
 
-
 // Display modal contact
 function displayModalContact() {
     document.getElementById("content").style.display= "block"; 
