@@ -7,36 +7,32 @@ use App\Model\NoteManager;
 
 class OffreController extends AbstractController
 {
-    /*private ?NoteManager $noteManager;
-      private ?OffreManager $offreManager;
-      private array $categorie;
-      private array $area;
-      private array $availability;
-      private array $notesAverage;
-
-    public function __construct()
-    {
-        $this->noteManager = new NoteManager();
-        $this->offreManager = new OffreManager();
-        $this->categorie = $offreManager->selectCategorie();
-        $this->area = $offreManager->selectArea();
-        $this->availability = $offreManager->selectAvailability();
-        $this->notesAverage = $noteManager->noteAverage();
-    }*/
-
     public function index(): string
     {
+        $this->initialize();
+        $offreManager = new OffreManager();
+        $offres = $offreManager->selectOffre();
+        return $this->twig->render('Offre/offre.html.twig', ['offres' => $offres]);
+    }
+
+
+    /**
+     * Initiliaze twig global variable fot display
+     */
+    private function initialize(): void
+    {
+        $noteManager = new NoteManager();
         $offreManager = new OffreManager();
         $categorie = $offreManager->selectCategorie();
         $area = $offreManager->selectArea();
         $availability = $offreManager->selectAvailability();
-        $offres = $offreManager->selectOffre();
-        $noteManager = new NoteManager();
         $notesAverage = $noteManager->noteAverage();
-
-        return $this->twig->render('Offre/offre.html.twig', ['categories' => $categorie, 'offres' => $offres,
-        'areas' => $area, 'availabilities' => $availability ,'notesAverage' => $notesAverage]);
+        $_SESSION['categories'] = $categorie;
+        $_SESSION['areas'] = $area;
+        $_SESSION['availabilities'] = $availability;
+        $_SESSION['notesAverage'] = $notesAverage;
     }
+
 
     private function validate(array $data): bool
     {
@@ -50,6 +46,9 @@ class OffreController extends AbstractController
         }
     }
 
+    /**
+     * Search offer filter
+     */
     public function search(): string
     {
         $data = array_map('trim', $_POST);
@@ -59,14 +58,7 @@ class OffreController extends AbstractController
             return $this->index();
         } else {
             $offre = $offreManager->searchOffre($data);
-            $categorie = $offreManager->selectCategorie();
-            $area = $offreManager->selectArea();
-            $availability = $offreManager->selectAvailability();
-            $noteManager = new NoteManager();
-            $notesAverage = $noteManager->noteAverage();
-
-            return $this->twig->render('Offre/offre.html.twig', ['categories' => $categorie, 'offres' => $offre,
-            'areas' => $area, 'availabilities' => $availability, 'notesAverage' => $notesAverage]);
+            return $this->twig->render('Offre/offre.html.twig', ['offres' => $offre]);
         }
     }
 }

@@ -3,51 +3,61 @@
 namespace App\Controller;
 
 use App\Model\NoteManager;
+use App\Model\OffreManager;
 
 /**
  * @SuppressWarnings(PHPMD)
  */
 class NoteController extends AbstractController
 {
-    private ?NoteManager $noteManager;
-    private ?\DateTime $date;
-
-    public function __CONSTRUCT()
-    {
-        $this->noteManager = new NoteManager();
-        $this->date = new \DateTime();
-    }
-
+    /**
+     * Validate if user is authorized
+     */
     public function validate(int $userId, int $offreId): bool
     {
-        $userAutorise = $this->noteManager->selectById($userId, $offreId);
+        $noteManager = new NoteManager();
 
-        if ($userAutorise == true || in_array($userId, $userAutorise)) {
-            return true;
-        } else {
+        $userAutorise = $noteManager->selectById($userId, $offreId);
+        if ($userAutorise == false) {
             return false;
+        } elseif (in_array($userId, $userAutorise)) {
+            return true;
         }
     }
 
-
-    public function add(): void
+     /**
+     * Call insert new note
+     */
+    public function add(): string
     {
-        $_SESSION['user_id'] = 1;    //A affecter dans la fonction login
+        $_SESSION['user_id'] = 4;    //A affecter dans la fonction login
+        $noteManager = new NoteManager();
+        $offreManager = new OffreManager();
+        $date = new \DateTime();
 
         $note = array_map('trim', $_GET);
-        $note['date'] = $this->date->format('Y/m/d');
+        $note['date'] = $date->format('Y/m/d');
         $note['user_id'] = $_SESSION['user_id'];
+        $message = '';
+        $alert = '';
 
-        if (isset($note) && !empty($note) && !$this->validate($note['user_id'], $note['offre_id'])) {
-            $this->noteManager->insert($note);
-            //$this->twig->render('component/_alert.html.twig');
-            echo 'ok';
-            die();
+        if (isset($note) && !empty($note) && $this->validate($note['user_id'], $note['offre_id']) == false) {
+            $noteManager->insert($note);
+            $alert = 'primary';
+            $message = 'Votre note à bien été prise en compte';
+            $offre = $offreManager->selectOffre();
+            return $this->twig->render(
+                'Offre/offre.html.twig',
+                ['offres' => $offre, 'message' => $message, 'alert' => $alert]
+            );
         } else {
-            //$this->twig->render('component/_alert.html.twig');
-            echo 'error';
-            var_dump($note);
-            die();
+            $alert = 'danger';
+            $message = 'Vous avez déja attribué une note à cette offre';
+            $offre = $offreManager->selectOffre();
+            return $this->twig->render(
+                'Offre/offre.html.twig',
+                ['offres' => $offre, 'message' => $message, 'alert' => $alert]
+            );
         }
     }
 }

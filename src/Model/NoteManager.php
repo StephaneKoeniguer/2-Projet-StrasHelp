@@ -30,7 +30,7 @@ class NoteManager extends AbstractManager
     /**
      * Search user note in database
      */
-    public function selectById(int $userId, int $offreId): int
+    public function selectById(int $userId, int $offreId)
     {
         $query = 'SELECT user_id FROM ' . self::TABLE . ' WHERE user_id = ' . $userId . ' AND offre_id = ' . $offreId;
         return $statement = $this->pdo->query($query)->fetch();

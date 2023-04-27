@@ -14,7 +14,7 @@
             <div class="uk-margin">
                 <select for="categorie" class="uk-select" aria-label="Select" name="categorie">
                     <option >Veuillez Choisir</option>
-                    {% for categorie in categories %}
+                    {% for categorie in session.categories %}
                     <option>{{ categorie.description }}</option>
                     {% endfor %}
                 </select>
@@ -23,7 +23,7 @@
             <div class="uk-margin">
                 <select for="zoneintervention" class="uk-select" aria-label="Select" name="area">
                 <option>Veuillez Choisir</option>
-                {% for area in areas %}
+                {% for area in session.areas %}
                 <option>{{ area.area }} </option> 
                 {% endfor %}
                 </select>
@@ -32,7 +32,7 @@
             <div class="uk-margin">
                 <select for="disponibilites" class="uk-select" aria-label="Select" name="disponibilites">
                     <option>Veuillez Choisir</option>
-                    {% for availability in availabilities %}
+                    {% for availability in session.availabilities %}
                     <option>{{ availability.availability }}</option>
                     {% endfor %}
                 </select>
@@ -46,13 +46,21 @@
     </div>
 </div>
 
+    {% if message is not empty %}
+    <div class="uk-alert-{{alert}} uk-container-small uk-align-center" uk-alert>
+        <a class="uk-alert-close" uk-close></a>
+        <p>{{message}}</p>
+    </div>
+    {% endif %}
+
+
     <div class="uk-margin uk-visible@m" >
         <div class="sk-container">
             {% for offre in offres %}
             <div class="uk-card">
                 <div class="uk-card-header">
                     <h2 class="uk-margin-remove-top">{{ offre.title }}</h2> 
-                     {% for noteAverage in notesAverage %}
+                     {% for noteAverage in session.notesAverage %}
                        {% if offre.id == noteAverage.offre_id %}
                         <p >Avis : {{ noteAverage.moyenne }}<em>/5</em></p>
                        {% endif %} 
@@ -83,6 +91,7 @@
             {% endfor %}
         </div>     
     </div>
+
     
     <div class="sk-card uk-margin uk-hidden@m" uk-slideshow>
         <div class="sk-container uk-slideshow-items">
@@ -90,7 +99,7 @@
             <div class="uk-card uk-card-default">
                 <div class="uk-card-header">
                     <h2 class="uk-margin-remove-bottom">{{ offre.title }}</h2>
-                    {% for noteAverage in notesAverage %}
+                    {% for noteAverage in session.notesAverage %}
                        {% if offre.id == noteAverage.offre_id %}
                         <p class="uk-margin-remove-top">Avis : {{ noteAverage.moyenne }}<em>/5</em></p>
                        {% endif %} 
@@ -100,6 +109,7 @@
                     <p>{{ offre.description }}</p>
                 </div>
                 <div class="uk-card-footer">
+                    <a class="sk-note" href="#" uk-icon="icon:mail"></a>
                     <p class="uk-margin-remove-bottom uk-margin-remove-top">Note</p>
                     <a class="sk-note" href="note?note=1&offre_id={{ offre.id }}" title= "1/5" uk-icon="star"></a>
                     <a class="sk-note" href="note?note=2&offre_id={{ offre.id }}" title= "2/5" uk-icon="star"></a>
