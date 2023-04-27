@@ -1,14 +1,21 @@
 
 // display modal login
-function showModal() {
-    var element = document.getElementById("modal");
+/*function showModal() {
+    var element = document.getElementById("modal").style.display= "block";
     element.classList.add("show-modal");
+}*/
+
+
+function displayModalLogin() {
+    document.getElementById("content").style.display= "block";  
 }
 
-function closeModal() {
-    var element = document.getElementById("modal");
+/*function closeModal() {
+    var element = document.getElementById("modal").style.display= "none";
     element.classList.remove("show-modal");
-}
+}*/
+
+
 
 // Display modal contact
 function displayModalContact() {

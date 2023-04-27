@@ -1,14 +1,15 @@
 {% include "component/_popUpMessage.html.twig" %}
 
+
  <div class="container">  
     <nav>
         <div>
-            <a href="/"><img class="animate__animated animate__pulse logo" src="/assets/images/Logo-strasHelp.png"></a>
+            <a href="/"><img class="animate__animated animate__rubberBand  logo" src="/assets/images/Logo-strasHelp.png"></a>
         </div>
         <ul>
             <li><a href="/">Home</a></li>
-            <li><a onclick="showModal()">Login</a></li>
-                <div class="modal" id="modal"></div>
+            <li><a onclick="displayModalLogin()">Login</a></li>
+                {# <div class="modal" id="modal"></div> #}
             <li><a onclick="displayModalContact()">Contact</a></li>            
         </ul> 
         <div class="menu-icon">
