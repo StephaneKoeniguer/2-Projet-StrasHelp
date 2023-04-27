@@ -32,6 +32,19 @@ class OffreManager extends AbstractManager
 
     public function searchOffre($data): array
     {
+        /*
+        if($data['area']) {
+            where .= '';
+        }
+
+        if($data['disponibilites']) {
+            where .= ' AND ';
+        }
+
+        if($data['categorie']) {
+            where .= ' AND ';
+        }*/
+
         $query = "SELECT * FROM offre INNER JOIN categorie on categorie.id = offre.categorie_id
         WHERE availability='" . $data['disponibilites'] . "'AND area='" . $data['area'] .
         "'AND categorie.description='" . $data['categorie'] . "'";
