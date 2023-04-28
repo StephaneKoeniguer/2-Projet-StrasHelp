@@ -1,15 +1,22 @@
-
 // display modal login
-function showModal() {
-    var element = document.getElementById("modal");
-    element.classList.add("show-modal");
+function displayModalLogin() {
+    document.getElementById("contentlogin").style.display = "block";
 }
 
-function closeModal() {
-    var element = document.getElementById("modal");
-    element.classList.remove("show-modal");
+function hiddenModalLogin() {
+    document.getElementById("contentlogin").style.display = "none";
 }
 
+// Display modal contact
+function displayModalContact() {
+    document.getElementById("content").style.display = "block";
+}
+
+function hiddenModalContact() {
+    document.getElementById("content").style.display = "none";
+}
+
+//display burger menu
 var menu = document.querySelector("nav ul");
 var menuBar = document.querySelector("nav .menu-icon");
 var iconMenu = document.querySelector("nav .menu-icon img");
@@ -21,7 +28,32 @@ menuBar.addEventListener("click", function () {
         iconMenu.setAttribute("src", "assets/images/menu.png");
     }
 
-   menu.classList.toggle('active');
+    menu.classList.toggle("active");
 });
 
+// Show and hidden date in Home form
 
+// Récupération des éléments HTML nécessaires
+const dateField = document.getElementById("date");
+const associationRadio = document.querySelector(
+    'input[name="type"][value="association"]'
+);
+const particulierRadio = document.querySelector(
+    'input[name="type"][value="particulier"]'
+);
+
+// Fonction pour afficher ou masquer le champ de la date
+function toggleDateField() {
+    if (associationRadio.checked) {
+        dateField.style.display = "block";
+    } else {
+        dateField.style.display = "none";
+    }
+}
+
+// Ajout d'un écouteur d'événements sur les radios de type
+associationRadio.addEventListener("click", toggleDateField);
+particulierRadio.addEventListener("click", toggleDateField);
+
+// Masquage initial du champ de la date si le radio particulier est sélectionné
+toggleDateField();

@@ -67,6 +67,7 @@ label{
 
 .uk-card-body{
     padding: 10%;
+    height: 50%;
 }
 
 h3, p, .uk-card-footer{
@@ -91,6 +92,11 @@ h3, p, .uk-card-footer{
         color: var(--white--color);
     }
 
+    h2{
+        font-size: 1em;
+    }
+
+    /* Formulaire */
     .sk-container-form{
         width: 100%;
         background-color: #F7F7F7;
@@ -123,19 +129,29 @@ h3, p, .uk-card-footer{
         color: var(--white--color);
     }
 
+    /* Card */
+    .sk-container{
+        height: 50vh;
+    }
+
     .uk-card{
         height: 40%;
-        margin-top: 5%;
+        margin-top: 2%;
         display: flex;
         align-items: center;
     } 
 
     .uk-card-header{
         border-right: 1px solid rgba(189,195,199, .8);
+        width: 15%;
+    }
+
+    .sk-header{
+        width: 40%;
     }
 
     .uk-card-footer{
-        border-left: 1px solid rgba(189,195,199, .8);
+        width: 10%;
     }
 
     .sk-star{

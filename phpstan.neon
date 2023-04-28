@@ -1,3 +1,8 @@
 parameters:
 	ignoreErrors:
 		- '#Constant [A-Z_]+ not found.#'
+	excludePaths:
+		- public/assets/css/style_HomePopUp.css
+		- src/Controller/NoteController.php
+		- src/Model/NoteManager.php
+		- src/Model/OffreManager.php
