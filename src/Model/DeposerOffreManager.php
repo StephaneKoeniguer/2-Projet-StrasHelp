@@ -33,4 +33,12 @@ class DeposerOffreManager extends AbstractManager
         $statement = $this->pdo->query($query)->fetchAll();
         return $statement;
     }
+
+    public function delete(int $id): void
+    {
+        $query = 'DELETE FROM offre WHERE id=:id';
+        $statement = $this->pdo->prepare($query);
+        $statement->bindValue(':id', $id, PDO::PARAM_INT);
+        $statement->execute();
+    }
 }

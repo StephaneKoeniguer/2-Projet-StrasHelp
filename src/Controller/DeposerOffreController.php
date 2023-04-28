@@ -26,4 +26,13 @@ class DeposerOffreController extends AbstractController
 
         return $this->twig->render('depot/deposerOffre.html.twig');
     }
+
+    public function delete(): void
+    {
+            $id = 14;
+            //$id = trim($_GET['id']);
+            $deposerOffreManager = new DeposerOffreManager();
+            $deposerOffreManager->delete($id);
+            header('Location:/');
+    }
 }
