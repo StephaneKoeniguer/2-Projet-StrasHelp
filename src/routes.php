@@ -23,5 +23,4 @@ return [
     'contact' => ['MailController', 'mail'],
     'note' => ['NoteController', 'add'],
     'mesoffres' => ['MesOffresController', 'index'],
-
 ];

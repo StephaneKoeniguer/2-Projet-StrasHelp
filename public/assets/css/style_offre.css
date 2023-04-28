@@ -55,7 +55,7 @@ label{
 /* Card */
 
 .sk-container{
-    height: 35vh;
+    height: 45vh;
 }
 
 .uk-card{
@@ -63,6 +63,10 @@ label{
     margin: auto;
     border: 1px solid rgba(189,195,199, .8);
     border-radius: 10px;
+}
+
+h2{
+    text-align: center;
 }
 
 .uk-card-body{
@@ -79,10 +83,16 @@ h3, p, .uk-card-footer{
 }
 
 .sk-note:hover{
-    color: rgb(207, 207, 29);
+    color: #F6B039;
+}
+
+em{
+    color: black;
+    font-size: 0.8em;
 }
 
 
+/* descktop display*/
 @media (min-width: 768px){
 
     h1{
@@ -151,7 +161,7 @@ h3, p, .uk-card-footer{
     }
 
     .uk-card-footer{
-        width: 10%;
+        width: 15%;
     }
 
     .sk-star{

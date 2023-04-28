@@ -3,20 +3,36 @@
 namespace App\Controller;
 
 use App\Model\OffreManager;
+use App\Model\NoteManager;
 
 class OffreController extends AbstractController
 {
     public function index(): string
     {
-        $offreManager = new offreManager();
+        $this->initialize();
+        $offreManager = new OffreManager();
+        $offres = $offreManager->selectOffre();
+        return $this->twig->render('Offre/offre.html.twig', ['offres' => $offres]);
+    }
+
+
+    /**
+     * Initiliaze twig global variable fot display
+     */
+    private function initialize(): void
+    {
+        $noteManager = new NoteManager();
+        $offreManager = new OffreManager();
         $categorie = $offreManager->selectCategorie();
         $area = $offreManager->selectArea();
         $availability = $offreManager->selectAvailability();
-        $offres = $offreManager->selectOffre();
-
-        return $this->twig->render('Offre/offre.html.twig', ['categories' => $categorie, 'offres' => $offres,
-        'areas' => $area, 'availabilities' => $availability]);
+        $notesAverage = $noteManager->noteAverage();
+        $_SESSION['categories'] = $categorie;
+        $_SESSION['areas'] = $area;
+        $_SESSION['availabilities'] = $availability;
+        $_SESSION['notesAverage'] = $notesAverage;
     }
+
 
     private function validate(array $data): bool
     {
@@ -30,6 +46,9 @@ class OffreController extends AbstractController
         }
     }
 
+    /**
+     * Search offer filter
+     */
     public function search(): string
     {
         $data = array_map('trim', $_POST);
@@ -39,11 +58,7 @@ class OffreController extends AbstractController
             return $this->index();
         } else {
             $offre = $offreManager->searchOffre($data);
-            $categorie = $offreManager->selectCategorie();
-            $area = $offreManager->selectArea();
-            $availability = $offreManager->selectAvailability();
-            return $this->twig->render('Offre/offre.html.twig', ['categories' => $categorie, 'offres' => $offre,
-            'areas' => $area, 'availabilities' => $availability]);
+            return $this->twig->render('Offre/offre.html.twig', ['offres' => $offre]);
         }
     }
 }
