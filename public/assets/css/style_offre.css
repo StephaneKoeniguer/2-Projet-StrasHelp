@@ -4,6 +4,7 @@
 
 body{
     height: 100vh;
+
 }
 
 h1{
@@ -95,6 +96,7 @@ em{
 /* descktop display*/
 @media (min-width: 768px){
 
+
     h1{
         width: 50%;
         margin-bottom: 5%;
@@ -141,7 +143,7 @@ em{
 
     /* Card */
     .sk-container{
-        height: 50vh;
+        height: auto;
     }
 
     .uk-card{
@@ -153,7 +155,7 @@ em{
 
     .uk-card-header{
         border-right: 1px solid rgba(189,195,199, .8);
-        width: 15%;
+        width: 25%;
     }
 
     .sk-header{

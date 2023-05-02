@@ -55,10 +55,10 @@
     </div>
 </div>
 
- <div class="uk-margin uk-visible@m" >
+ <div class="uk-margin uk-visible@m">
      <div class="sk-container">
         {% for offre in offres %}
-        <div class="uk-card">
+        <div class="uk-card uk-box-shadow-medium">
             <div class="uk-card-header">
                 <h2 class="uk-margin-remove-top">{{ offre.title }}</h2> 
                     {% for noteAverage in session.notesAverage %}

@@ -30,7 +30,7 @@ class NoteController extends AbstractController
      */
     public function add(): string
     {
-        $_SESSION['user_id'] = 4;    //A affecter dans la fonction login
+        $_SESSION['user_id'] = 1;    //A affecter dans la fonction login
         $noteManager = new NoteManager();
         $offreManager = new OffreManager();
         $date = new \DateTime();
