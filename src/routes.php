@@ -15,9 +15,10 @@ return [
     'items/delete' => ['ItemController', 'delete',],
     'categorie' => ['CategorieController', 'index'],
     'categorie/add' => ['CategorieController', 'add'],
-    'offre' => ['OffreController', 'index',],
+    'offre' => ['OffreController', 'index'],
+    'depot' => ['DeposerOffreController', 'index'],
+    'depot/add' => ['DeposerOffreController', 'add'],
     'search' => ['OffreController', 'search'],
-    'depot' => ['DeposerOffreController', 'index',],
     'contact' => ['MailController', 'mail'],
     'note' => ['NoteController', 'add'],
     'mesoffres' => ['MesOffresController', 'index'],
@@ -26,4 +27,5 @@ return [
     'dashboard' => ['DashboardController', 'index',],
 
 
+    'createUser/add' => ['CreateUserController', 'add'],
 ];

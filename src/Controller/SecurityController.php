@@ -14,7 +14,7 @@ class SecurityController extends AbstractController
             if ($isLogin) {
                 $_SESSION['login'] = $isLogin['login'];
                 $_SESSION['isLogin'] = true;
-                header('Home:/super-admin.html.twig');
+                header('Home:/.html.twig');
             } else {
                 header('component:/_popUpLogin');
             }
