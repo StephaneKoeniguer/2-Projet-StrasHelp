@@ -1,5 +1,6 @@
 {% extends 'layout.html.twig' %}
 
+
 {% block stylesheet %}
 {{parent()}}
 <link rel="stylesheet" href="/assets/css/style_offre.css">
@@ -8,6 +9,14 @@
 {% block content %}
 
 <h1>Besoin d'aide ?</h1>
+
+{% if message is not empty %}
+    <div class="uk-alert-{{alert}} uk-container-small uk-align-center" uk-alert>
+        <a class="uk-alert-close" uk-close></a>
+        <p>{{message}}</p>
+    </div>
+    {% endif %}
+
 <div class="sk-container-form">
     <form class="sk-form" action="search" method="POST">
         <label for="categorie">Catégorie</label>
@@ -46,37 +55,29 @@
     </div>
 </div>
 
-    {% if message is not empty %}
-    <div class="uk-alert-{{alert}} uk-container-small uk-align-center" uk-alert>
-        <a class="uk-alert-close" uk-close></a>
-        <p>{{message}}</p>
-    </div>
-    {% endif %}
-
-
-    <div class="uk-margin uk-visible@m" >
-        <div class="sk-container">
-            {% for offre in offres %}
-            <div class="uk-card">
-                <div class="uk-card-header">
-                    <h2 class="uk-margin-remove-top">{{ offre.title }}</h2> 
-                     {% for noteAverage in session.notesAverage %}
-                       {% if offre.id == noteAverage.offre_id %}
-                        <p >Avis : {{ noteAverage.moyenne }}<em>/5</em></p>
-                       {% endif %} 
+ <div class="uk-margin uk-visible@m" >
+     <div class="sk-container">
+        {% for offre in offres %}
+        <div class="uk-card">
+            <div class="uk-card-header">
+                <h2 class="uk-margin-remove-top">{{ offre.title }}</h2> 
+                    {% for noteAverage in session.notesAverage %}
+                        {% if offre.id == noteAverage.offre_id %}
+                            <p >Avis : {{ noteAverage.moyenne }}<em>/5</em></p>
+                        {% endif %} 
                     {% endfor %}
-                </div>
-                <div class="sk-header uk-card-header">
-                    <p>{{ offre.description }}</p>
-                </div>
-                <div class="sk-header uk-card-header">
-                    <p>{{ offre.availability }}</p>
-                </div>
-                <div class="sk-header uk-card-header">
-                    <p>{{ offre.area }}</p>
-                </div>
-                <div class="uk-card-footer">
-                <a class="sk-note" href="#" uk-icon="icon:mail"></a>
+            </div>
+            <div class="sk-header uk-card-header">
+                <p>{{ offre.description }}</p>
+            </div>
+            <div class="sk-header uk-card-header">
+                <p>{{ offre.availability }}</p>
+            </div>
+            <div class="sk-header uk-card-header">
+                <p>{{ offre.area }}</p>
+            </div>
+            <div class="uk-card-footer">
+                <a class="sk-note" href="#modal-example" uk-toggle uk-icon="icon:mail"></a>
                     <p class="uk-margin-remove-bottom">Note</p>
                         <div class="sk-star">
                             <a class="sk-note" href="note?note=1&offre_id={{ offre.id }}" title= "1/5" uk-icon="icon:star"></a>
@@ -85,16 +86,16 @@
                             <a class="sk-note" href="note?note=4&offre_id={{ offre.id }}" title= "4/5" uk-icon="icon:star"></a>
                             <a class="sk-note" href="note?note=5&offre_id={{ offre.id }}" title= "5/5" uk-icon="icon:star"></a>
                         </div>
-                </div>
             </div>
-
-            {% endfor %}
-        </div>     
+        </div>
+         {% endfor %}
     </div>
+</div>     
+
 
     
-    <div class="sk-card uk-margin uk-hidden@m" uk-slideshow>
-        <div class="sk-container uk-slideshow-items">
+<div class="sk-card uk-margin uk-hidden@m" uk-slideshow>
+    <div class="sk-container uk-slideshow-items">
         {% for offre in offres %}
             <div class="uk-card uk-card-default">
                 <div class="uk-card-header">
@@ -109,7 +110,7 @@
                     <p>{{ offre.description }}</p>
                 </div>
                 <div class="uk-card-footer">
-                    <a class="sk-note" href="#" uk-icon="icon:mail"></a>
+                    <a class="sk-note" href="#modal-example" uk-toggle uk-icon="icon:mail"></a>
                     <p class="uk-margin-remove-bottom uk-margin-remove-top">Note</p>
                     <a class="sk-note" href="note?note=1&offre_id={{ offre.id }}" title= "1/5" uk-icon="star"></a>
                     <a class="sk-note" href="note?note=2&offre_id={{ offre.id }}" title= "2/5" uk-icon="star"></a>
@@ -121,10 +122,32 @@
                 <a class="uk-position-center-right uk-hidden-hover" href="#" uk-slidenav-next uk-slideshow-item="next"></a>
             </div>
         {% endfor %}
-        </div>
     </div>
+</div>
+
+<div id="modal-example" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body">   
+     <form action="contact" method="GET">
+        <fieldset class="uk-fieldset">
+        <legend class="uk-legend">Formulaire de contact</legend>
+        <hr class="uk-divider-icon">
+        <label class="uk-form-label" for="form-stacked-text">Nom, prénom</label>
+        <div class="uk-margin">
+            <input class="uk-input" type="text" aria-label="Input">
+        </div>
+        <label class="uk-form-label" for="form-stacked-text">Email</label>
+        <div class="uk-margin">
+            <input class="uk-input" type="email" aria-label="Input">
+        </div>
+         <label class="uk-form-label" for="form-stacked-text">Votre message</label>
+        <div class="uk-margin">
+            <textarea class="uk-textarea" rows="5" aria-label="Textarea"></textarea>
+        </div>  
+            <button class="uk-button uk-button-primary" type="button">Envoyer</button>
+            <button class="uk-button uk-button-default uk-modal-close uk-margin" type="button">Annuler</button>
+        </fieldset>
+    </form> 
+    </div>
+</div>
 
 {% endblock %}
-
-
-
