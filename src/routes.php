@@ -21,5 +21,10 @@ return [
     'contact' => ['MailController', 'mail'],
     'note' => ['NoteController', 'add'],
     'mesoffres' => ['MesOffresController', 'index'],
+    'login' => ['SecurityController', 'login'],
+    'logout' => ['SecurityController', 'logout'],
+    'dashboard' => ['DashboardController', 'index',],
+
+
     'createUser/add' => ['CreateUserController', 'add'],
 ];
