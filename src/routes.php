@@ -23,5 +23,4 @@ return [
     'note' => ['NoteController', 'add'],
     'mesoffres' => ['MesOffresController', 'index'],
     'createUser/add' => ['CreateUserController', 'add'],
-
 ];
