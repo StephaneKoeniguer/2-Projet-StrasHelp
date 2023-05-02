@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Model\OffreManager;
 use App\Model\NoteManager;
+use App\Model\CategorieManager;
 
 class OffreController extends AbstractController
 {
@@ -23,7 +24,8 @@ class OffreController extends AbstractController
     {
         $noteManager = new NoteManager();
         $offreManager = new OffreManager();
-        $categorie = $offreManager->selectCategorie();
+        $categorieManager = new CategorieManager();
+        $categorie = $categorieManager->selectCategorie();
         $area = $offreManager->selectArea();
         $availability = $offreManager->selectAvailability();
         $notesAverage = $noteManager->noteAverage();
@@ -33,7 +35,9 @@ class OffreController extends AbstractController
         $_SESSION['notesAverage'] = $notesAverage;
     }
 
-
+    /**
+     * Validate Search offer
+     */
     private function validate(array $data): bool
     {
         if (
@@ -51,12 +55,17 @@ class OffreController extends AbstractController
      */
     public function search(): string
     {
-        $data = array_map('trim', $_POST);
         $offreManager = new offreManager();
+        $data = array_map('trim', $_POST);
 
         if (!$this->validate($data)) {
             return $this->index();
         } else {
+            foreach ($data as $key => $value) {
+                if ('Veuillez Choisir' == $value) {
+                    unset($data[$key]);
+                }
+            }
             $offre = $offreManager->searchOffre($data);
             return $this->twig->render('Offre/offre.html.twig', ['offres' => $offre]);
         }
