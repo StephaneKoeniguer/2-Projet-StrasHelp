@@ -13,7 +13,7 @@ class CreateUserController extends AbstractController
 
             $createUserManager = new createUserManager();
             $createUserManager->createUser($createuser);
-
+            
             return $this->twig->render('Home/index.html.twig');
         }
 
