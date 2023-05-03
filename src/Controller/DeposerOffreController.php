@@ -3,14 +3,18 @@
 namespace App\Controller;
 
 use App\Model\DeposerOffreManager;
+use App\Model\CategorieManager;
 
+/**
+ * @SuppressWarnings(PHPMD)
+ */
 class DeposerOffreController extends AbstractController
 {
     public function index(): string
     {
-        $deposerOffreManager = new DeposerOffreManager();
-        $categorie = $deposerOffreManager->selectCategorie();
-        return $this->twig->render('depot/deposerOffre.html.twig', ['categories' => $categorie]);
+        $categorieManager = new CategorieManager();
+        $categories = $categorieManager->selectAll();
+        return $this->twig->render('depot/deposerOffre.html.twig', ['categories' => $categories]);
     }
 
     public function add(): ?string
@@ -21,18 +25,39 @@ class DeposerOffreController extends AbstractController
             $deposerOffreManager = new DeposerOffreManager();
             $deposerOffreManager->insert($deposerOffre);
 
-            return $this->twig->render('Home/index.html.twig');
+            header('Location:/');
         }
 
-        return $this->twig->render('depot/deposerOffre.html.twig');
+        return $this->twig->render('MesOffres/Mesoffres.html.twig');
     }
+
+    public function show(): string
+    {
+        $deposerOffreManager = new DeposerOffreManager();
+        $showOffres = $deposerOffreManager->fetchAll();
+
+
+        return $this->twig->render('MesOffres/Mesoffres.html.twig', ['offres' => $showOffres]);
+    }
+
+
+    public function edit(int $id): ?string
+    {
+        $deposerOffreManager = new DeposerOffreManager();
+        $offre = $deposerOffreManager->selectOneById($id);
+        if (!empty($_POST)) {
+            $deposerOffre = array_map('trim', $_POST);
+        }
+        return $this->twig->render('depot/deposerOffre.html.twig', ['offre' => $offre]);
+    }
+
 
     public function delete(): void
     {
-            $id = 14;
-            //$id = trim($_GET['id']);
-            $deposerOffreManager = new DeposerOffreManager();
-            $deposerOffreManager->delete($id);
-            header('Location:/');
+        $id = array_map('trim', ($_GET['id']));
+        $id = intval($id);
+        $deposerOffreManager = new DeposerOffreManager();
+        $deposerOffreManager->delete($id);
+        header('Location:/mesoffres');
     }
 }

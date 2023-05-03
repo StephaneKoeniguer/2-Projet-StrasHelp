@@ -22,9 +22,12 @@
   <form class="uk-form-stacked" action="depot/add" method="POST">
     <div class="uk-margin">
         <div class="uk-form-controls">
+                    
+                
+            
             <select class="uk-select" id="form-stacked-select" name="categorie_id">
             {% for categorie in categories %}
-                <option>{{ categorie.description }}</option>
+                <option value="{{categorie.id}}">{{ categorie.description }}</option>
             {% endfor %}
             </select>
         </div>
@@ -33,35 +36,36 @@
      <div class="uk-margin">
         <label class="uk-form-label" for="form-stacked-text"></label>
         <div class="uk-form-controls">
-            <input class="uk-input" id="form-stacked-text" type="text" placeholder="Indiquez un titre à votre offre" name="title">
+            <input class="uk-input" id="form-stacked-text" type="text" placeholder="Indiquez un titre à votre offre" name="title" value= {{ offre.title }}>
         </div>
     </div>
 
     <div class="uk-margin">
         <label class="uk-form-label" for="form-stacked-text"></label>
         <div class="uk-form-controls">
-            <input class="uk-input" id="form-stacked-text" type="text" placeholder="Indiquez la zone d'intervention" name="area" >
+            <input class="uk-input" id="form-stacked-text" type="text" placeholder="Indiquez la zone d'intervention" name="area" value= {{ offre.area }} >
         </div>
     </div>
 
     <div class="uk-margin">
         <label class="uk-form-label" for="form-stacked-text"></label>
         <div class="uk-form-controls">
-            <input class="uk-input" id="form-stacked-text" type="text" placeholder="Indiquez la disponibilité" name="availability" >
+            <input class="uk-input" id="form-stacked-text" type="text" placeholder="Indiquez la disponibilité" name="availability" value= {{ offre.availability }} >
         </div>
     </div>
 
     <div class="uk-margin">
         <label class="uk-form-label" for="form-stacked-text"></label>
         <div class="uk-form-controls">
-            <input class="uk-input" id="form-stacked-text" type="tel" placeholder="Indiquez votre numéro de téléphone" name="phone" >
+            <input class="uk-input" id="form-stacked-text" type="tel" placeholder="Indiquez votre numéro de téléphone" name="phone" value= {{ offre.phone }} >
         </div>
     </div>
 
     <div class="description-btn-container">
       <label for="message"></label>
-      <textarea id="message" rows="5" placeholder="Description de l'intervention souhaitée" name="description" ></textarea><br><br>
+      <textarea id="message" rows="5" placeholder="Description de l'intervention souhaitée"  name="description" value= {{ offre.description }} ></textarea><br><br>
       <button class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom">Button</button>
+
   </div>
   </form>
           </div>
