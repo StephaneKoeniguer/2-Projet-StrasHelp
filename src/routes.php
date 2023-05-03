@@ -13,7 +13,6 @@ return [
     'items/show' => ['ItemController', 'show', ['id']],
     'items/add' => ['ItemController', 'add',],
     'items/delete' => ['ItemController', 'delete',],
-    'categorie' => ['CategorieController', 'index'],
     'categorie/add' => ['CategorieController', 'add'],
     'offre' => ['OffreController', 'index'],
     'depot' => ['DeposerOffreController', 'index'],
@@ -22,5 +21,8 @@ return [
     'contact' => ['MailController', 'mail'],
     'note' => ['NoteController', 'add'],
     'mesoffres' => ['MesOffresController', 'index'],
+    'login' => ['SecurityController', 'login'],
+    'logout' => ['SecurityController', 'logout'],
+    'dashboard' => ['DashboardController', 'index',],
     'createUser/add' => ['CreateUserController', 'add'],
 ];
