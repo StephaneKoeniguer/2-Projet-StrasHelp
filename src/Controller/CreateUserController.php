@@ -14,7 +14,7 @@ class CreateUserController extends AbstractController
             $createUserManager = new createUserManager();
             $createUserManager->createUser($createuser);
 
-            header('location:/');
+            header("Location:/");
         }
 
         return $this->twig->render('Home/index.html.twig');
