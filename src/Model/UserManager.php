@@ -13,7 +13,7 @@ class UserManager extends AbstractManager
     {
         // prepared request
         $statement = $this->pdo->prepare("SELECT * FROM " . static::TABLE .
-         " WHERE login=:login AND password=:password");
+            " WHERE login=:login AND password=:password");
         $statement->bindValue('login', $login, \PDO::PARAM_STR);
         $statement->bindValue('password', md5($password), \PDO::PARAM_STR);
         $statement->execute();
