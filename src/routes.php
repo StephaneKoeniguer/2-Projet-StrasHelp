@@ -23,9 +23,6 @@ return [
     'note' => ['NoteController', 'add'],
     'mesoffres' => ['DeposerOffreController', 'show'],
     'mesoffres/edit' => ['DeposerOffreController', 'edit', ['id']],
-
-
-    'mesoffres' => ['MesOffresController', 'index'],
     'login' => ['SecurityController', 'login'],
     'logout' => ['SecurityController', 'logout'],
     'dashboard' => ['DashboardController', 'index',],

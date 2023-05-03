@@ -11,8 +11,8 @@ class CategorieManager extends AbstractManager
 {
     public const TABLE = 'categorie';
 
-    public function insert(array $categorie)
-    
+    //public function insert(array $categorie);
+
     public function selectCategorie(): array
     {
         $query = 'SELECT * FROM categorie';
