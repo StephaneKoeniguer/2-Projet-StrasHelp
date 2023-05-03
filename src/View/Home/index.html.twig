@@ -6,36 +6,233 @@
 {% endblock %}
 
 {% block content %}
+    <header>
+    <div
+        class="uk-background-cover uk-light uk-flex uk-background-fixed uk-background-center-center uk-responsive"
+        uk-height-viewport
+        style="background-image: url('assets/images/volunteers-teaming-up-organize-donations-charity-bw.png');">
+        <div
+          class="uk-width-1-2@m uk-text-center uk-margin-auto uk-margin-auto-vertical uk-height-xsmall">
+          <h1 class="uk-text-center uk-text-bold">Connectez-vous avec votre communauté et échanger des services avec Stras'Help</h1>
+          <div class="uk-flex uk-flex-center uk-flex-wrap uk-margin-medium-top">
+            <a
+              href="/offre"
+              class="botao uk-margin-right"
+              uk-parallax="opacity: 0,1,1; y: -100,0,0; x: 100,100,0; scale: 2,1,1; end: 50vh + 50%;"
+              style="animation-duration: 5s">Rechercher une offre</a>
+            <a
+              href="/depot"
+              class="botao"
+              uk-parallax="opacity: 0,1,1; y: 100,0,0; x: -100,-100,0; scale: 0.5,1,1; end: 50vh + 50%;"
+              style="animation-duration: 5s">Déposer une offre</a>
+          </div>
+        </div>
+      </div>
+    </header>
      <main>
-            <div class="text-bx">
-                <h1> Qui suis-je : </h1>
-                <p>
-                     Notre association a pour but de favoriser les échanges non marchands de services de proximité ( comme le bricolage,
-                     la cuisine, l’éducation) entre associations et particuliers. 
-                     Nous offrons à nos membres la possibilité d’offrir leurs services et savoir-faire, tandis que d’autres membres peuvent en faire la demande.
-                     Les objectifs de notre site Web sont simples : fournir une plate-forme permettant aux utilisateurs de publier leurs offres de services 
-                     ( y compris les informations de contact, les catégories, la disponibilité et les zones de service), de rechercher parmi les offres existantes et de prendre contact les uns avec les autres. Nous avons également un système de back-office pratique pour gérer les offres.
-                </b>
-
-                </p>
-
-                <div class="input-bx">
-                   <a href="/offre" class="botao">Rechercher une offre</a>
-                   <a href="/depot" class="botao">Déposer une offre</a>
+        <section class="section-one">
+        <div class="uk-section uk-preserve-color">
+          <div class="uk-container">
+            <div class="uk-panel uk-light uk-margin-medium">
+              <h2
+                class="uk-animation-slide-right title-section-one"
+                uk-scrollspy-class="uk-animation-slide-right"
+                uk-scrollspy="cls: uk-animation-slide-right; repeat: true"
+              >
+                Les dernières <strong class="demandes">demandes</strong>
+              </h2>
+            </div>
+            <div
+              class="uk-child-width-1-2@m uk-flex-middle uk-grid-match uk-grid"
+              uk-scrollspy="cls: uk-animation-slide-bottom-small; target: .uk-card; delay: 200; repeat: true;"
+            >
+              <div class="uk-width-1-3@m uk-position-relative">
+                <div
+                  class="uk-card uk-card-default"
+                  uk-scrollspy-class="uk-animation-slide-left-small"
+                >
+                  <div class="uk-card-media-top">
+                    <img
+                      class="uk-width-1-1"
+                      src="https://images.unsplash.com/photo-1522881193457-37ae97c905bf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fHIlQzMlQTlzZWF1JTIwcHJvZmVzc2lvbm5lbHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60"
+                      alt=""
+                    />
+                  </div>
+                  <div class="uk-card-body">
+                    <h3>Un réseau de professionnels solidaires</h3>
+                    <p>
+                      Notre association regroupe des professionnels de différents secteurs qui offrent leurs services et leurs compétences.
+                    </p>
+                  </div>
                 </div>
-
-                
+              </div>
+              <div class="uk-width-1-3@m">
+                <div
+                  class="uk-card uk-card-default"
+                  uk-scrollspy-class="uk-animation-slide-top-small"
+                >
+                  <div class="uk-card-media-top">
+                    <img
+                      class="uk-width-1-1"
+                      src="https://images.unsplash.com/photo-1490578474895-699cd4e2cf59?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDV8fHJlbmNvbnRyZSUyMGVudHJlJTIwcGVyc29ubmVzJTIwZGFucyUyMHVuJTIwYmFyfGVufDB8MHwwfHw%3D&auto=format&fit=crop&w=800&q=60"
+                      alt=""
+                    />
+                  </div>
+                  <div class="uk-card-body">
+                    <h3>Plateformes d'échanges de services entre particuliers</h3>
+                    <p>
+                      Organisation des événements pour que les membres puissent se rencontrer et échanger des services en personne.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="uk-width-1-3@m">
+                <div
+                  class="uk-card uk-card-default"
+                  uk-scrollspy-class="uk-animation-slide-right-small"
+                >
+                  <div class="uk-card-media-top">
+                    <img
+                      class="uk-width-1-1"
+                      src="https://images.unsplash.com/photo-1580193387439-ad5be7bf74d8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDV8fHNlbnNpYmlsaXNhdGlvbiUyMGFzc29jaWF0aXZlJTIwcG91ciUyMGwnZW52aXJvbm5lbWVudHxlbnwwfDB8MHx8&auto=format&fit=crop&w=800&q=60"
+                      alt=""
+                    />
+                  </div>
+                  <div class="uk-card-body">
+                    <h3>Actions de sensibilisation associatives</h3>
+                    <p>
+                      Associations sensibilisent et informent sur enjeux sociaux ou environnementaux via événements et ateliers.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
-
-
-            <div class="img-bx">
-                <img src="/assets/images/volunteers-teaming-up-organize-donations-charity.jpg">
+          </div>
+        </div>
+        <div class="input-bx uk-flex uk-flex-center uk-margin-bottom">
+          <a
+            href="/depot"
+            class="botao-vert"
+            uk-scrollspy-class="uk-animation-slide-bottom-small"
+            uk-scrollspy="cls: uk-animation-slide-bottom-small; repeat: true;"
+            >Voir toutes les demandes</a
+          >
+        </div>
+        </div>
+      </section>
+      <section
+        class="uk-section uk-background-primary uk-section-large uk-position-relative"
+      >
+        <div class="uk-container uk-text-center">
+          <h2 class="title-section-two">
+            Ils <strong class="questions">réagissent</strong> à vos questions
+          </h2>
+          <div
+            class="uk-child-width-1-3@m uk-grid-medium uk-grid-match uk-grid"
+            uk-grid
+          >
+            <div>
+              <div class="uk-card uk-card-body">
+                <img src="assets/images/pelle-jardinage.png" alt="Une illustration d'une pelle de jardinage" />
+                <h4>Entretenez votre jardin</h4>
+                <p>
+                  Prenez soin de votre espace extérieur en confiant son entretien à des professionnels qualifiés.
+                </p>
+              </div>
             </div>
-        </main>
-    </div>
-    
+            <div>
+              <div class="uk-card uk-card-body">
+                <img src="assets/images/pot-peinture.png" alt="Une illustration d'une pot de peinture avec un pinceau" />
+                <h4>Rafraîchissez votre intérieur</h4>
+                <p>
+                  Donnez un nouveau souffle à votre maison grâce à notre service de rafraîchissement intérieur.
+                </p>
+              </div>
+            </div>
+            <div>
+              <div class="uk-card uk-card-body">
+                <img src="assets/images/tool-box.png" alt="Image d'une illustration d'une caisse avec des outils de bricolage" />
+                <h4>Confiez-nous vos travaux</h4>
+                <p>
+                  Nous mettons nos compétences à votre service pour réaliser vos travaux en toute confiance.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="input-bx uk-flex uk-flex-center uk-margin-bottom uk-padding">
+          <a
+            href="/offre"
+            class="botao"
+            uk-scrollspy-class="uk-animation-slide-bottom-small"
+            uk-scrollspy="cls: uk-animation-slide-bottom-small; repeat: true;"
+            >Voir toutes les offres</a
+          >
+        </div>
+      </section>
+      <section class=" section-three uk-section uk-section-default">
+        <div class="uk-container">
+          <h2 class=" title-section-three uk-text-uppercase uk-padding">
+            Vous trouverez toutes sorte d'aide
+          </h2>
+          <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider="clsActivated: uk-transition-active; center: true; autoplay: true">
+            <ul class="uk-slider-items uk-grid">
+              <li class="uk-width-3-4">
+                <div class="uk-panel">
+                  <img src="https://plus.unsplash.com/premium_photo-1663134265077-75840a5430e3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2370&q=80" width="1800" height="1200" alt="Une femme entrain de peindre un mur">
+                  <div class="uk-overlay uk-overlay-primary uk-position-bottom uk-text-center uk-transition-slide-bottom">
+                      <h3 class="uk-margin-remove">RÉNOVATION</h3>
+                      <p class="uk-margin-remove uk-visible@s">Pour trouver le professionnel idéal dont vous avez besoin, contactez-nous .</p>
+                    </div>
+                </div>
+              </li>
+              <li class="uk-width-3-4">
+                  <div class="uk-panel">
+                    <img src="https://images.unsplash.com/photo-1505798577917-a65157d3320a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8YnJpY29sYWdlfGVufDB8MHwwfHw%3D&auto=format&fit=crop&w=800&q=60" width="1800" height="1200" alt="Deux hommes entrain de couper des planches dans le garage">
+                    <div class="uk-overlay uk-overlay-primary uk-position-bottom uk-text-center uk-transition-slide-bottom">
+                      <h3 class="uk-margin-remove">BRICOLAGE</h3>
+                      <p class="uk-margin-remove uk-visible@s">Pour trouver un homme à tout faire à la maison, un plombier, un électricien, un peintre, prenez contact avec nous.</p>
+                    </div>
+                  </div>
+              </li>
+              <li class="uk-width-3-4">
+                <div class="uk-panel">
+                  <img src="https://images.unsplash.com/photo-1614359835514-92f8ba196357?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8ZCVDMyVBOW0lQzMlQTluYWdldXJzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60" width="1800" height="1200" alt="Des personnes entrain de faire un déménagement">
+                  <div class="uk-overlay uk-overlay-primary uk-position-bottom uk-text-center uk-transition-slide-bottom">
+                    <h3 class="uk-margin-remove">DÉMÉNAGEMENT</h3>
+                    <p class="uk-margin-remove uk-visible@s">Vous cherchez un déménageur, à louer une camionnette pour votre déménagement? Il y a toujours quelqu'un pour votre déménagement.</p>
+                  </div>
+                </div>
+              </li>
+              <li class="uk-width-3-4">
+                <div class="uk-panel">
+                  <img src="https://images.unsplash.com/photo-1601001815894-4bb6c81416d7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fGphcmRpbmFnZXxlbnwwfDB8MHx8&auto=format&fit=crop&w=800&q=60" width="1800" height="1200" alt="Un homme entrain de planter des graines dans un jardin">
+                  <div class="uk-overlay uk-overlay-primary uk-position-bottom uk-text-center uk-transition-slide-bottom">
+                    <h3 class="uk-margin-remove">JARDINAGE</h3>
+                    <p class="uk-margin-remove uk-visible@s">Besoin de tondre la pelouse, de tailler une haie, un entretien pour votre jardin? Adressez-vous à nous et on vous aidera.</p>
+                  </div>
+                </div>
+              </li>
+              <li class="uk-width-3-4">
+                <div class="uk-panel">
+                  <img src="https://images.unsplash.com/photo-1556911073-38141963c9e0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fGNvdXJzJTIwZGUlMjBjdWlzaW5lfGVufDB8MHwwfHw%3D&auto=format&fit=crop&w=800&q=60" width="1800" height="1200" alt="Une femme chef de cuisine ">
+                  <div class="uk-overlay uk-overlay-primary uk-position-bottom uk-text-center uk-transition-slide-bottom">
+                    <h3 class="uk-margin-remove">Cours de cuisine</h3>
+                    <p class="uk-margin-remove uk-visible@s">Vous voulez apprendre à cuisiner. Trouvez tout ce dont vous avez besoin comme cuisinier à domicile.</p>
+                  </div>
+                </div>
+              </li>
+            </ul>
+              <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+              <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
+          </div>
+        </div>
+      </section>
+
 
     {% include 'component/_formHome.html.twig' %}
+    </main>
 {% endblock %}
 
 

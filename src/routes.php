@@ -24,7 +24,5 @@ return [
     'login' => ['SecurityController', 'login'],
     'logout' => ['SecurityController', 'logout'],
     'dashboard' => ['DashboardController', 'index',],
-
-
     'createUser/add' => ['CreateUserController', 'add'],
 ];
