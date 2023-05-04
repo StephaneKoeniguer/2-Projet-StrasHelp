@@ -4,9 +4,6 @@ namespace App\Model;
 
 use PDO;
 
-/**
- * @SuppressWarnings(PHPMD)
- */
 class NoteManager extends AbstractManager
 {
     public const TABLE = 'note';
@@ -33,7 +30,7 @@ class NoteManager extends AbstractManager
     public function selectByIdNote(int $userId, int $offreId): array|false
     {
         $query = 'SELECT user_id FROM ' . self::TABLE . ' WHERE user_id = ' . $userId . ' AND offre_id = ' . $offreId;
-        return $statement = $this->pdo->query($query)->fetch();
+        return $this->pdo->query($query)->fetch();
     }
 
     /**
@@ -42,9 +39,8 @@ class NoteManager extends AbstractManager
     public function selectByIdOffre(int $userId, int $offreId): array|false
     {
         $query = 'SELECT user_id FROM offre WHERE user_id = ' . $userId . ' AND id = ' . $offreId;
-        return $statement = $this->pdo->query($query)->fetch();
+        return $this->pdo->query($query)->fetch();
     }
-
 
     /**
      * Search note average in database
@@ -53,6 +49,6 @@ class NoteManager extends AbstractManager
     {
         $query = 'SELECT offre_id, round(avg(note),1) as moyenne FROM ' . self::TABLE .
          ' INNER JOIN offre on offre.id = note.offre_id GROUP BY offre_id';
-        return $statement = $this->pdo->query($query)->fetchAll();
+        return $this->pdo->query($query)->fetchAll();
     }
 }
