@@ -22,9 +22,11 @@ return [
     'contact' => ['MailController', 'mail'],
     'note' => ['NoteController', 'add'],
     'mesoffres' => ['DeposerOffreController', 'show'],
-    'mesoffres/edit' => ['DeposerOffreController', 'edit', ['id']],
     'login' => ['SecurityController', 'login'],
     'logout' => ['SecurityController', 'logout'],
     'dashboard' => ['DashboardController', 'index',],
     'createUser/add' => ['CreateUserController', 'add'],
+    'depot/edit' => ['DeposerOffreController', 'redit', ['id']],
+    'depot/edit/update' => ['DeposerOffreController', 'edit', ['id']],
+
 ];

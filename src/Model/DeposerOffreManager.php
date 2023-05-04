@@ -44,4 +44,21 @@ class DeposerOffreManager extends AbstractManager
         $statement = $this->pdo->query($query);
         return $statement->fetchAll();
     }
+
+
+    public function update(int $id, array $deposerOffre): void
+    {
+        $query = 'UPDATE offre SET title = :title, area = :area, availability = :availability,
+                  phone = :phone, description = :description
+                  WHERE id = :id';
+        $statement = $this->pdo->prepare($query);
+        $statement->bindValue(':id', $id, PDO::PARAM_INT);
+        $statement->bindValue(':title', $deposerOffre['title'], PDO::PARAM_STR);
+        $statement->bindValue(':area', $deposerOffre['area'], PDO::PARAM_STR);
+        $statement->bindValue(':availability', $deposerOffre['availability'], PDO::PARAM_STR);
+        $statement->bindValue(':phone', $deposerOffre['phone'], PDO::PARAM_STR);
+        $statement->bindValue(':description', $deposerOffre['description'], PDO::PARAM_STR);
+       // $statement->bindValue(':offre.categorie_id', $deposerOffre['offre.categorie_id'], PDO::PARAM_INT);
+        $statement->execute();
+    }
 }

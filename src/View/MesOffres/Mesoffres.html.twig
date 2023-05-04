@@ -22,10 +22,8 @@
             <div class="uk-width-auto">
             </div>
             <div class="uk-width-expand">
-                <h3 class="uk-card-title uk-margin-remove-bottom">{{ offre.title }}</h3>
-                
-                <p class="uk-text-meta uk-margin-remove-top">{{ offre.cdescription}}</p>
-                                
+                <h3 class="uk-card-title uk-margin-remove-bottom">{{ offre.title }}</h3> 
+                <p class="uk-text-meta uk-margin-remove-top">{{ offre.cdescription}}</p>     
             </div>
         </div>
     </div>
@@ -38,7 +36,7 @@
         <p class="uk-margin-remove-top"> {{ offre.availability }}</p>
         </div>
         <div class="fonctions">
-        <a href="mesoffres/edit?id={{offre.id}}" uk-icon="icon: pencil"></a>
+        <a href="depot/edit?id={{offre.id}}" uk-icon="icon: pencil"></a>    
         <a href="mesoffres/delete?id={{offre.id}}" uk-icon="icon: trash"></a>
             
         </div>

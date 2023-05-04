@@ -41,15 +41,25 @@ class DeposerOffreController extends AbstractController
     }
 
 
-    public function edit(int $id): ?string
+    public function edit(int $id): void
     {
         $deposerOffreManager = new DeposerOffreManager();
         $offre = $deposerOffreManager->selectOneById($id);
         if (!empty($_POST)) {
             $deposerOffre = array_map('trim', $_POST);
+            $deposerOffreManager->update($id, $deposerOffre);
         }
-        return $this->twig->render('depot/deposerOffre.html.twig', ['offre' => $offre]);
+
+        header('location:/mesoffres');
     }
+
+    public function redit($id): ?string
+    {
+        $deposerOffreManager = new DeposerOffreManager();
+        $offre = $deposerOffreManager->selectOneById($id);
+        return $this->twig->render('depot/deposerOffreUpdate.html.twig', ['offre' => $offre]);
+    }
+
 
 
     public function delete(): void
