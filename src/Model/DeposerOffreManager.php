@@ -6,6 +6,8 @@ use PDO;
 
 class DeposerOffreManager extends AbstractManager
 {
+    public const TABLE = 'offre';
+
     public function insert(array $deposerOffre)
     {
         $statement = $this->pdo->prepare("

@@ -64,8 +64,7 @@ class DeposerOffreController extends AbstractController
 
     public function delete(): void
     {
-        $id = array_map('trim', ($_GET['id']));
-        $id = intval($id);
+        $id = intval(trim($_GET['id']));
         $deposerOffreManager = new DeposerOffreManager();
         $deposerOffreManager->delete($id);
         header('Location:/mesoffres');
