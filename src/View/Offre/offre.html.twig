@@ -11,11 +11,11 @@
 <h1>Besoin d'aide ?</h1>
 
 {% if message is not empty %}
-    <div class="uk-alert-{{alert}} uk-container-small uk-align-center" uk-alert>
+    <div class="uk-alert-{{alert}} uk-container-small uk-align-center uk-box-shadow-large" uk-alert>
         <a class="uk-alert-close" uk-close></a>
         <p>{{message}}</p>
     </div>
-    {% endif %}
+{% endif %}
 
 <div class="sk-container-form">
     <form class="sk-form" action="search" method="POST">
@@ -89,9 +89,14 @@
             </div>
         </div>
          {% endfor %}
+         <a class="uk-button uk-margin" href="" uk-scroll><span uk-icon="icon: arrow-up; ratio: 2"></span></a>
     </div>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+    <path fill="#8ec475" fill-opacity="0.5" d="M0,160L40,160C80,160,160,160,240,165.3C320,
+    171,400,181,480,160C560,139,640,85,720,96C800,107,880,181,960,197.3C1040,213,1120,171,1200,144C1280,
+    117,1360,107,1400,101.3L1440,96L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,
+    320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z"></path></svg>
 </div>     
-
 
     
 <div class="sk-card uk-margin uk-hidden@m" uk-slideshow>
@@ -123,11 +128,16 @@
             </div>
         {% endfor %}
     </div>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+    <path fill="#8ec475" fill-opacity="0.5" d="M0,160L40,160C80,160,160,160,240,165.3C320,
+    171,400,181,480,160C560,139,640,85,720,96C800,107,880,181,960,197.3C1040,213,1120,171,1200,144C1280,
+    117,1360,107,1400,101.3L1440,96L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,
+    320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z"></path></svg>
 </div>
 
 <div id="modal-example" uk-modal>
     <div class="uk-modal-dialog uk-modal-body">   
-     <form action="contact" method="GET">
+     <form action="contact" method="POST">
         <fieldset class="uk-fieldset">
         <legend class="uk-legend">Formulaire de contact</legend>
         <hr class="uk-divider-icon">
@@ -146,7 +156,23 @@
             <button class="uk-button uk-button-primary" type="button">Envoyer</button>
             <button class="uk-button uk-button-default uk-modal-close uk-margin" type="button">Annuler</button>
         </fieldset>
-    </form> 
+    </form>
+    <svg id="wave" style="transform:rotate(0deg); transition: 0.3s" viewBox="0 0 1440 490" version="1.1" 
+    xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="sw-gradient-0" x1="0" x2="0" y1="1" y2="0">
+    <stop stop-color="rgba(142, 196, 117, 1)" offset="0%"></stop><stop stop-color="rgba(142, 196, 117, 1)" 
+    offset="100%"></stop></linearGradient></defs><path style="transform:translate(0, 0px); opacity:1" 
+    fill="url(#sw-gradient-0)" d="M0,147L60,171.5C120,196,240,245,360,245C480,245,600,196,720,163.3C840,131,
+    960,114,1080,138.8C1200,163,1320,229,1440,285.8C1560,343,1680,392,1800,408.3C1920,425,2040,408,2160,334.8C2280,
+    261,2400,131,2520,89.8C2640,49,2760,98,2880,98C3000,98,3120,49,3240,24.5C3360,0,3480,0,3600,73.5C3720,147,3840,294,
+    3960,294C4080,294,4200,147,4320,73.5C4440,0,4560,0,4680,49C4800,98,4920,196,5040,212.3C5160,229,5280,163,5400,155.2C5520,
+    147,5640,196,5760,196C5880,196,6000,147,6120,138.8C6240,131,6360,163,6480,179.7C6600,196,6720,196,6840,212.3C6960,229,7080,
+    261,7200,277.7C7320,294,7440,294,7560,245C7680,196,7800,98,7920,98C8040,98,8160,196,8280,212.3C8400,229,8520,163,8580,130.7L8640,
+    98L8640,490L8580,490C8520,490,8400,490,8280,490C8160,490,8040,490,7920,490C7800,490,7680,490,7560,490C7440,
+    490,7320,490,7200,490C7080,490,6960,490,6840,490C6720,490,6600,490,6480,490C6360,490,6240,490,6120,490C6000,
+    490,5880,490,5760,490C5640,490,5520,490,5400,490C5280,490,5160,490,5040,490C4920,490,4800,490,4680,490C4560,490,
+    4440,490,4320,490C4200,490,4080,490,3960,490C3840,490,3720,490,3600,490C3480,490,3360,490,3240,490C3120,490,3000,490,
+    2880,490C2760,490,2640,490,2520,490C2400,490,2280,490,2160,490C2040,490,1920,490,1800,490C1680,490,1560,490,1440,490C1320,
+    490,1200,490,1080,490C960,490,840,490,720,490C600,490,480,490,360,490C240,490,120,490,60,490L0,490Z"></path></svg>
     </div>
 </div>
 

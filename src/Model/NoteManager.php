@@ -28,13 +28,23 @@ class NoteManager extends AbstractManager
     }
 
     /**
-     * Search user note in database
+     * Search user_id note in database
      */
-    public function selectById(int $userId, int $offreId): array|false
+    public function selectByIdNote(int $userId, int $offreId): array|false
     {
         $query = 'SELECT user_id FROM ' . self::TABLE . ' WHERE user_id = ' . $userId . ' AND offre_id = ' . $offreId;
         return $statement = $this->pdo->query($query)->fetch();
     }
+
+    /**
+     * Search user_id offre in database
+     */
+    public function selectByIdOffre(int $userId, int $offreId): array|false
+    {
+        $query = 'SELECT user_id FROM offre WHERE user_id = ' . $userId . ' AND id = ' . $offreId;
+        return $statement = $this->pdo->query($query)->fetch();
+    }
+
 
     /**
      * Search note average in database
