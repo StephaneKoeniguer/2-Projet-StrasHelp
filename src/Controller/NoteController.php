@@ -5,6 +5,9 @@ namespace App\Controller;
 use App\Model\NoteManager;
 use App\Model\OffreManager;
 
+/**
+ * @SuppressWarnings(PHPMD)
+ */
 class NoteController extends AbstractController
 {
     private NoteManager $noteManager;
@@ -50,7 +53,7 @@ class NoteController extends AbstractController
     public function add(): string
     {
         $this->noteManager = new NoteManager();
-        $date = new DateTime();
+        $date = new \DateTime();
 
         $note = array_map('trim', $_GET);
         $note['date'] = $date->format('Y/m/d');
