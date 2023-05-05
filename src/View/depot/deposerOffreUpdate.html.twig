@@ -19,12 +19,12 @@
           </div>
             </div>
   
-  <form class="uk-form-stacked" action="depot/add" method="POST">
+  <form class="uk-form-stacked" action="edit/update?id={{offre.id}}" method="POST">
     <div class="uk-margin">
         <div class="uk-form-controls">
-                     
+                      
             <select class="uk-select" id="form-stacked-select" name="categorie_id">
-            {% for categorie in categories %}
+            {% for categorie in session.categories %}
                 <option value="{{categorie.id}}">{{ categorie.description }}</option>
             {% endfor %}
             </select>

@@ -12,12 +12,16 @@ return [
     'offre' => ['OffreController', 'index'],
     'depot' => ['DeposerOffreController', 'index'],
     'depot/add' => ['DeposerOffreController', 'add'],
+    'mesoffres/delete' => ['DeposerOffreController', 'delete'],
     'search' => ['OffreController', 'search'],
     'contact' => ['MailController', 'mail'],
     'note' => ['NoteController', 'add'],
-    'mesoffres' => ['MesOffresController', 'index'],
+    'mesoffres' => ['DeposerOffreController', 'show'],
     'login' => ['SecurityController', 'login'],
     'logout' => ['SecurityController', 'logout'],
     'dashboard' => ['DashboardController', 'index',],
     'createUser/add' => ['CreateUserController', 'add'],
+    'depot/edit' => ['DeposerOffreController', 'redit', ['id']],
+    'depot/edit/update' => ['DeposerOffreController', 'edit', ['id']],
+
 ];
