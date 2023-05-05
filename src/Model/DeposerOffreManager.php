@@ -60,7 +60,6 @@ class DeposerOffreManager extends AbstractManager
         $statement->bindValue(':availability', $deposerOffre['availability'], PDO::PARAM_STR);
         $statement->bindValue(':phone', $deposerOffre['phone'], PDO::PARAM_STR);
         $statement->bindValue(':description', $deposerOffre['description'], PDO::PARAM_STR);
-       // $statement->bindValue(':offre.categorie_id', $deposerOffre['offre.categorie_id'], PDO::PARAM_INT);
         $statement->execute();
     }
 }

@@ -19,8 +19,30 @@ class DeposerOffreController extends AbstractController
 
     public function add(): ?string
     {
+        $message = '';
+
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $deposerOffre = array_map('trim', $_POST);
+
+            $message = "Votre offre est déposée";
+
+            if (
+                empty(trim($deposerOffre['title'])) ||
+                empty(trim($deposerOffre['area'])) ||
+                empty(trim($deposerOffre['availability'])) ||
+                empty(trim($deposerOffre['phone'])) ||
+                empty(trim($deposerOffre['description'])) ||
+                empty(trim($deposerOffre['categorie_id'])) ||
+                !isset($deposerOffre['title']) ||
+                !isset($deposerOffre['area']) ||
+                !isset($deposerOffre['availability']) ||
+                !isset($deposerOffre['phone']) ||
+                !isset($deposerOffre['description']) ||
+                !isset($deposerOffre['categorie_id'])
+            ) {
+                $message = "Veuillez remplir tous les champs requis.";
+                return $this->twig->render('depot/deposerOffre.html.twig', ['message' => $message]);
+            }
 
             $deposerOffreManager = new DeposerOffreManager();
             $deposerOffreManager->insert($deposerOffre);
@@ -59,8 +81,6 @@ class DeposerOffreController extends AbstractController
         $offre = $deposerOffreManager->selectOneById($id);
         return $this->twig->render('depot/deposerOffreUpdate.html.twig', ['offre' => $offre]);
     }
-
-
 
     public function delete(): void
     {
