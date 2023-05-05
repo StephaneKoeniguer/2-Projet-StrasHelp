@@ -32,7 +32,7 @@ class OffreManager extends AbstractManager
     {
         $i = 0;
 
-        $query = "SELECT * FROM offre INNER JOIN categorie on categorie.id = offre.categorie_id
+        $query = "SELECT *, offre.description FROM offre INNER JOIN categorie on categorie.id = offre.categorie_id
         WHERE ";
 
         foreach ($data as $key => $value) {

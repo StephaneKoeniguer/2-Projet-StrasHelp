@@ -16,11 +16,18 @@ class NoteController extends AbstractController
     public function validate(int $userId, int $offreId): bool
     {
         $noteManager = new NoteManager();
+        //already a note
+        $userNote = $noteManager->selectByIdNote($userId, $offreId);
+        //offre belongs user
+        $userOffre =  $noteManager->selectByIdOffre($userId, $offreId);
 
-        $userAutorise = $noteManager->selectById($userId, $offreId);
-        if ($userAutorise == false) {
-            return false;
-        } elseif (in_array($userId, $userAutorise)) {
+        if ($userOffre == false) {
+            if ($userNote == false) {
+                return false;
+            } elseif (in_array($userId, $userNote)) {
+                return true;
+            }
+        } else {
             return true;
         }
     }
@@ -30,7 +37,7 @@ class NoteController extends AbstractController
      */
     public function add(): string
     {
-        $_SESSION['user_id'] = 4;    //A affecter dans la fonction login
+
         $noteManager = new NoteManager();
         $offreManager = new OffreManager();
         $date = new \DateTime();
@@ -41,18 +48,28 @@ class NoteController extends AbstractController
         $message = '';
         $alert = '';
 
-        if (isset($note) && !empty($note) && $this->validate($note['user_id'], $note['offre_id']) == false) {
-            $noteManager->insert($note);
-            $alert = 'primary';
-            $message = 'Votre note à bien été prise en compte';
-            $offre = $offreManager->selectOffre();
-            return $this->twig->render(
-                'Offre/offre.html.twig',
-                ['offres' => $offre, 'message' => $message, 'alert' => $alert]
-            );
+        if (!empty($_SESSION['user_id'])) {
+            if (isset($note) && !empty($note) && $this->validate($note['user_id'], $note['offre_id']) == false) {
+                $noteManager->insert($note);
+                $alert = 'primary';
+                $message = 'Votre note à bien été prise en compte';
+                $offre = $offreManager->selectOffre();
+                return $this->twig->render(
+                    'Offre/offre.html.twig',
+                    ['offres' => $offre, 'message' => $message, 'alert' => $alert]
+                );
+            } else {
+                $alert = 'danger';
+                $message = 'Vous avez déja attribué une note à cette offre';
+                $offre = $offreManager->selectOffre();
+                return $this->twig->render(
+                    'Offre/offre.html.twig',
+                    ['offres' => $offre, 'message' => $message, 'alert' => $alert]
+                );
+            }
         } else {
-            $alert = 'danger';
-            $message = 'Vous avez déja attribué une note à cette offre';
+            $alert = 'warning';
+            $message = 'Merci de vous connecter ou de créer un compte';
             $offre = $offreManager->selectOffre();
             return $this->twig->render(
                 'Offre/offre.html.twig',

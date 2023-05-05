@@ -13,7 +13,7 @@ class MailController extends AbstractController
     private function validateConnexion(): bool
     {
         $this->mail->IsSMTP();
-        $this->mail->Host = '';                    //Adresse IP ou DNS du serveur SMTP
+        $this->mail->Host = 'smtp.free.fr';                    //Adresse IP ou DNS du serveur SMTP
         $this->mail->Port = 465;                               //Port TCP du serveur SMTP
         $this->mail->SMTPAuth = true;                          //Utiliser l'identification
         $this->mail->CharSet = 'UTF-8';

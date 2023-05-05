@@ -13,12 +13,13 @@ class OffreController extends AbstractController
         $this->initialize();
         $offreManager = new OffreManager();
         $offres = $offreManager->selectOffre();
+
         return $this->twig->render('Offre/offre.html.twig', ['offres' => $offres]);
     }
 
 
     /**
-     * Initiliaze twig global variable fot display
+     * Initiliaze twig global variable for display
      */
     private function initialize(): void
     {
