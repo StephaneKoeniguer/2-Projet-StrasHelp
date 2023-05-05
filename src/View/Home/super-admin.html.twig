@@ -1,7 +1,7 @@
 {% extends 'layout.html.twig' %}
 {% block content %}
     <div class="uk-section uk-text-center uk-padding-remove-top uk-padding-remove-bottom uk-margin-top uk-margin-bottom">
-      <h1 class="uk-heading-medium">Bonjour super Admin</h1>
+      <h1 class="uk-heading-medium">Bonjour {{session.login}}</h1>
     </div>
     <div class="uk-container uk-flex uk-flex-middle" >
       <div class="uk-width-expand@m">
