@@ -17,10 +17,10 @@ class CreateUserController extends AbstractController
             $createUserManager->createUser($createuser);
 
             $message = "Votre inscription a été enregistrée avec succès!";
-    
+
             // return $this->twig->render('Home/index.html.twig', ['message' => $message]);
 
-           header("Location:/?message=".$message);
+            header("Location:/?message=" . $message);
         }
 
         return $this->twig->render('Home/index.html.twig', ['message' => $message]);
