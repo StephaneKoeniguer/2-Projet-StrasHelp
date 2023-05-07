@@ -9,11 +9,6 @@
 return [
 
     '' => ['HomeController', 'index', ['message']],
-    'items' => ['ItemController', 'index',],
-    'items/edit' => ['ItemController', 'edit', ['id']],
-    'items/show' => ['ItemController', 'show', ['id']],
-    'items/add' => ['ItemController', 'add',],
-    'items/delete' => ['ItemController', 'delete',],
     'categorie/add' => ['CategorieController', 'add'],
     'offre' => ['OffreController', 'index'],
     'depot' => ['DeposerOffreController', 'index'],
