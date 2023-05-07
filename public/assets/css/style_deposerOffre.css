@@ -1,3 +1,6 @@
+:root {
+    --hover--color: #c31f50;
+}
 .paragraphe {
     text-align: center;
     margin: 10px 30px 0 20px;
@@ -35,6 +38,9 @@ form {
     background-color: #e94174;
     border-radius: 8px 8px 0 0;
     margin-bottom: 20px;
+}
+.uk-button:hover {
+    background-color: var(--hover--color);
 }
 
 .uk-select {

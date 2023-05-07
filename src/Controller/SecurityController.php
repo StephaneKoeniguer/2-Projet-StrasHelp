@@ -15,7 +15,7 @@ class SecurityController extends AbstractController
                 $_SESSION['login'] = $isLogin['login'];
                 $_SESSION['isLogin'] = true;
                 $_SESSION['user_id'] = $isLogin['id'];
-                header('location: /dashboard ');
+                header('location: / ');
             } else {
                 header('Location: /login');
             }
