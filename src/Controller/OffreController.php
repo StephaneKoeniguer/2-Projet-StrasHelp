@@ -8,11 +8,12 @@ use App\Model\CategorieManager;
 
 class OffreController extends AbstractController
 {
+    private OffreManager $offreManager;
+
     public function index(): string
     {
         $this->initialize();
-        $offreManager = new OffreManager();
-        $offres = $offreManager->selectOffre();
+        $offres = $this->offreManager->selectOffre();
 
         return $this->twig->render('Offre/offre.html.twig', ['offres' => $offres]);
     }
@@ -24,11 +25,11 @@ class OffreController extends AbstractController
     private function initialize(): void
     {
         $noteManager = new NoteManager();
-        $offreManager = new OffreManager();
+        $this->offreManager = new OffreManager();
         $categorieManager = new CategorieManager();
         $categorie = $categorieManager->selectCategorie();
-        $area = $offreManager->selectArea();
-        $availability = $offreManager->selectAvailability();
+        $area = $this->offreManager->selectArea();
+        $availability = $this->offreManager->selectAvailability();
         $notesAverage = $noteManager->noteAverage();
         $_SESSION['categories'] = $categorie;
         $_SESSION['areas'] = $area;
