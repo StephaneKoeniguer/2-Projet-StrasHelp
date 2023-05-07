@@ -7,7 +7,7 @@ class DashboardController extends AbstractController
     public function index()
     {
         if (!$_SESSION['isLogin']) {
-            header('Location:/forbidden');
+             header('Location:/forbidden');
         }
         return $this->twig->render('Home/super-admin.html.twig');
     }

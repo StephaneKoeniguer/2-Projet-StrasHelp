@@ -28,10 +28,12 @@ class CreateUserManager extends AbstractManager
             VALUES (:prenom, :email, :phone, :password, :description, :address, :type)"
             );
         }
+        $password = password_hash($createuser['password'], PASSWORD_BCRYPT);
+
         $statement->bindValue(':prenom', $createuser['prenom'], PDO::PARAM_STR);
         $statement->bindValue(':email', $createuser['email'], PDO::PARAM_STR);
         $statement->bindValue(':phone', $createuser['phone'], PDO::PARAM_STR);
-        $statement->bindValue(':password', $createuser['password'], PDO::PARAM_STR);
+        $statement->bindValue(':password', $password, PDO::PARAM_STR);
         $statement->bindValue(':description', $createuser['description'], PDO::PARAM_STR);
         $statement->bindValue(':address', $createuser['address'], PDO::PARAM_STR);
         $statement->bindValue(':type', $createuser['type'], PDO::PARAM_INT);

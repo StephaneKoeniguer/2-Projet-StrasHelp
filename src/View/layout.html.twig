@@ -21,6 +21,13 @@
 
 <body>
     {% block header %}{% include 'component/_navbar.html.twig' %}{% endblock %}
+    
+    {% if message is defined %}
+        <div class="uk-alert uk-alert-success uk-container-small uk-align-center uk-text-center" uk-alert>
+            <a class="uk-alert-close" uk-class></a>
+            {{message}}
+        </div>
+    {% endif %}        
     {% block content %}{% endblock %}
     {% block footer %} {% include 'component/_footer.html.twig' %} {% endblock %}
 
