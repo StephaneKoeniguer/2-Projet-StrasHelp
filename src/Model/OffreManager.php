@@ -4,24 +4,21 @@ namespace App\Model;
 
 use PDO;
 
-/**
- * @SuppressWarnings(PHPMD)
- */
 class OffreManager extends AbstractManager
 {
     public function selectOffre(): array
     {
-        return $statement = $this->pdo->query('SELECT * FROM offre')->fetchAll();
+        return $this->pdo->query('SELECT * FROM offre')->fetchAll();
     }
 
     public function selectArea(): array
     {
-        return $statement = $this->pdo->query('SELECT area FROM offre GROUP BY area')->fetchAll();
+        return $this->pdo->query('SELECT area FROM offre GROUP BY area')->fetchAll();
     }
 
     public function selectAvailability(): array
     {
-        return $statement = $this->pdo->query('SELECT availability FROM offre GROUP BY availability')->fetchAll();
+        return $this->pdo->query('SELECT availability FROM offre GROUP BY availability')->fetchAll();
     }
 
 
@@ -30,8 +27,6 @@ class OffreManager extends AbstractManager
      */
     public function searchOffre($data): array
     {
-        $i = 0;
-
         $query = "SELECT *, offre.description FROM offre INNER JOIN categorie on categorie.id = offre.categorie_id
         WHERE ";
 
@@ -44,11 +39,12 @@ class OffreManager extends AbstractManager
 
             $query .= $key . ' = "' . $value . '"';
 
-            if ($i < count($data) - 1) {
+            $index = 0;
+            if ($index < count($data) - 1) {
                    $query .= ' AND ';
-                   $i++;
+                   $index++;
             }
         }
-        return $statement = $this->pdo->query($query)->fetchAll();
+        return $this->pdo->query($query)->fetchAll();
     }
 }
