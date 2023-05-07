@@ -4,9 +4,6 @@
 
  use PDO;
 
-/**
- * @SuppressWarnings(PHPMD)
- */
 class CategorieManager extends AbstractManager
 {
     public const TABLE = 'categorie';
@@ -16,7 +13,7 @@ class CategorieManager extends AbstractManager
     public function selectCategorie(): array
     {
         $query = 'SELECT * FROM categorie';
-        return $statement = $this->pdo->query($query)->fetchAll();
+        return $this->pdo->query($query)->fetchAll();
     }
 
     public function insert(array $categorie): void
