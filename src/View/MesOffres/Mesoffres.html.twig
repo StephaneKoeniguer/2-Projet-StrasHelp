@@ -13,64 +13,35 @@
       <h1>Mes offres</h1>
     </div>
 
-
-<div class="card1">
 {% for offre in offres %}
-<div class="uk-card">
-    <div class="uk-card-header">
-        <div class="uk-grid-small uk-flex-middle" uk-grid>
-            <div class="uk-width-auto">
-            </div>
-            <div class="uk-width-expand">
-                <h3 class="uk-card-title uk-margin-remove-bottom">{{ offre.title }}</h3> 
-                <p class="uk-text-meta uk-margin-remove-top">{{ offre.cdescription}}</p>     
-            </div>
-        </div>
-    </div>
-    <div class="uk-card-body">
-        <p> {{ offre.odescription }} </p>
-        <p> {{ offre.phone }} </p>
-    </div>
-    <div class="uk-card-footer">
-        <h3 class="uk-margin-remove-bottom">{{ offre.area }}</h3>
-        <p class="uk-margin-remove-top"> {{ offre.availability }}</p>
-        </div>
-        <div class="fonctions">
-        <a href="depot/edit?id={{offre.id}}" uk-icon="icon: pencil"></a>    
-        <a href="mesoffres/delete?id={{offre.id}}" uk-icon="icon: trash"></a>
-            
-        </div>
-   </div>
+<div class="uk-overflow-auto">
+<table class="uk-table uk-table-divider uk-table-striped uk-table-large uk-table-hover">
+    <thead>
+        <tr>
+            <th>Catégorie</th>
+            <th>Titre</th>
+            <th>Description</th>
+            <th>Zone d'intervention</th>
+            <th>Disponibilité</th>
+            <th>Numéro de téléphone</th>
+            <th>Modifier</th>
+            <th>Supprimer</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{ offre.cdescription}}</td>
+            <td>{{ offre.title }}</td>
+            <td>{{ offre.odescription }}</td>
+            <td>{{ offre.area }}</td>
+            <td>{{ offre.availability }}</td>
+            <td>{{ offre.phone }}</td>
+            <td><a href="depot/edit?id={{offre.id}}" uk-icon="icon: pencil"></a> </td>
+            <td><a href="mesoffres/delete?id={{offre.id}}" uk-icon="icon: trash"></a></td>
+        </tr>
+    </tbody>
+</table>
 </div>
+</br>
 {% endfor %}
-
-
-
-
-
-<div class="card2">
-<div class="uk-card">
-    <div class="uk-card-header">
-        <div class="uk-grid-small uk-flex-middle" uk-grid>
-            <div class="uk-width-auto">
-            </div>
-            <div class="uk-width-expand">
-                <h3 class="uk-card-title uk-margin-remove-bottom">Title</h3>
-                <p class="uk-text-meta uk-margin-remove-top">prix</p>
-            </div>
-        </div>
-    </div>
-    <div class="uk-card-body">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
-    </div>
-    <div class="uk-card-footer">
-        <h3 class="uk-margin-remove-bottom">Note</h3>
-        <p class="uk-margin-remove-top"> test</p>
-    </div>
-    <div class="fonctions">
-        <a href="" uk-icon="icon: pencil"></a>
-        <a href="" uk-icon="icon: trash"></a>
-            </div>
-</div>
-</div>
 {% endblock %}

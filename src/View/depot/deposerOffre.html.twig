@@ -34,35 +34,35 @@
      <div class="uk-margin">
         <label class="uk-form-label" for="form-stacked-text"></label>
         <div class="uk-form-controls">
-            <input class="uk-input" id="form-stacked-text" type="text" placeholder="Indiquez un titre à votre offre" name="title" value= {{ offre.title }}>
+            <input class="uk-input" id="form-stacked-text" type="text" placeholder="Indiquez un titre à votre offre" required name="title" value= {{ offre.title }}>
         </div>
     </div>
 
     <div class="uk-margin">
         <label class="uk-form-label" for="form-stacked-text"></label>
         <div class="uk-form-controls">
-            <input class="uk-input" id="form-stacked-text" type="text" placeholder="Indiquez la zone d'intervention" name="area" value= {{ offre.area }} >
+            <input class="uk-input" id="form-stacked-text" type="text" placeholder="Indiquez la zone d'intervention" required name="area" value= {{ offre.area }} >
         </div>
     </div>
 
     <div class="uk-margin">
         <label class="uk-form-label" for="form-stacked-text"></label>
         <div class="uk-form-controls">
-            <input class="uk-input" id="form-stacked-text" type="text" placeholder="Indiquez la disponibilité" name="availability" value= {{ offre.availability }} >
+            <input class="uk-input" id="form-stacked-text" type="text" placeholder="Indiquez la disponibilité" required name="availability" value= {{ offre.availability }} >
         </div>
     </div>
 
     <div class="uk-margin">
         <label class="uk-form-label" for="form-stacked-text"></label>
         <div class="uk-form-controls">
-            <input class="uk-input" id="form-stacked-text" type="tel" placeholder="Indiquez votre numéro de téléphone" name="phone" value= {{ offre.phone }} >
+            <input class="uk-input" id="form-stacked-text" type="tel" placeholder="Indiquez votre numéro de téléphone" required name="phone" value= {{ offre.phone }} >
         </div>
     </div>
 
     <div class="description-btn-container">
       <label for="message"></label>
-      <textarea id="message" rows="5" placeholder="Description de l'intervention souhaitée"  name="description" value= {{ offre.description }} ></textarea><br><br>
-      <button class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom">Button</button>
+      <textarea id="message" rows="5" placeholder="Description de l'intervention souhaitée" required name="description" value= {{ offre.description }} ></textarea><br><br>
+      <button class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom">Envoyer</button>
 
   </div>
   </form>
