@@ -41,17 +41,20 @@ class DeposerOffreController extends AbstractController
                 !isset($deposerOffre['categorie_id'])
             ) {
                 $message = "Veuillez remplir tous les champs requis.";
-                return $this->twig->render('depot/deposerOffre.html.twig', ['message' => $message]);
+                header('Location:/?message=' . $message);
+                return $this->twig->render('depot/deposerOffre.html.twig');
+            } else {
+                $deposerOffreManager = new DeposerOffreManager();
+                $deposerOffreManager->insert($deposerOffre);
+                header('Location:/?message=' . $message);
+                return $this->twig->render('Home/index.html.twig');
             }
-
-            $deposerOffreManager = new DeposerOffreManager();
-            $deposerOffreManager->insert($deposerOffre);
-
-            header('Location:/');
         }
 
         return $this->twig->render('MesOffres/Mesoffres.html.twig');
     }
+
+
 
     public function show(): string
     {
@@ -62,24 +65,53 @@ class DeposerOffreController extends AbstractController
         return $this->twig->render('MesOffres/Mesoffres.html.twig', ['offres' => $showOffres]);
     }
 
-
-    public function edit(int $id): void
+    public function edit(int $id): ?string
     {
-        $deposerOffreManager = new DeposerOffreManager();
-        $offre = $deposerOffreManager->selectOneById($id);
-        if (!empty($_POST)) {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $deposerOffre = array_map('trim', $_POST);
-            $deposerOffreManager->update($id, $deposerOffre);
+
+            $message = "Votre offre est  mise a jour";
+
+            if (
+                    empty(trim($deposerOffre['title'])) ||
+                    empty(trim($deposerOffre['area'])) ||
+                    empty(trim($deposerOffre['availability'])) ||
+                    empty(trim($deposerOffre['phone'])) ||
+                    empty(trim($deposerOffre['description'])) ||
+                    empty(trim($deposerOffre['categorie_id'])) ||
+                    !isset($deposerOffre['title']) ||
+                    !isset($deposerOffre['area']) ||
+                    !isset($deposerOffre['availability']) ||
+                    !isset($deposerOffre['phone']) ||
+                    !isset($deposerOffre['description']) ||
+                    !isset($deposerOffre['categorie_id'])
+            ) {
+                $message = "Veuillez remplir tous les champs requis.";
+                header('Location: /?message=' . $message);
+                return $this->twig->render('depot/deposerOffreUpdate.html.twig');
+            } else {
+                $deposerOffreManager = new DeposerOffreManager();
+                $offre = $deposerOffreManager->selectOneById($id);
+                $deposerOffre = array_map('trim', $_POST);
+                $deposerOffreManager->update($id, $deposerOffre);
+                header('Location:/?message=' . $message);
+                return $this->twig->render('Home/index.html.twig');
+            }
         }
 
-        header('location:/mesoffres');
+        return $this->twig->render('MesOffres/Mesoffres.html.twig');
     }
 
     public function redit($id): ?string
     {
         $deposerOffreManager = new DeposerOffreManager();
         $offre = $deposerOffreManager->selectOneById($id);
-        return $this->twig->render('depot/deposerOffreUpdate.html.twig', ['offre' => $offre]);
+        $categorieManager = new CategorieManager();
+        $categories = $categorieManager->selectAll();
+        return $this->twig->render('depot/deposerOffreUpdate.html.twig', [
+            'offre' => $offre,
+            'categories' => $categories
+        ]);
     }
 
     public function delete(): void

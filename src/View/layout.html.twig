@@ -21,10 +21,10 @@
 
 <body>
     {% block header %}{% include 'component/_navbar.html.twig' %}{% endblock %}
-    {% if message is not empty %}
-        <div class="uk-alert-succes uk-container-small uk-align-center" uk-alert>
+    {% if message is defined %}
+        <div class="uk-alert uk-alert-succes uk-container-small uk-align-center uk-text-center" uk-alert>
             <a class="uk-alert-close" uk-class></a>
-            <p class="uk-text-center">{{message}}</p>
+            {{message}}
         </div>
     {% endif %}
     {% block content %}{% endblock %}

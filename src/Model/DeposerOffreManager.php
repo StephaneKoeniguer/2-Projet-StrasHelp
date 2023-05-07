@@ -11,8 +11,8 @@ class DeposerOffreManager extends AbstractManager
     public function insert(array $deposerOffre)
     {
         $statement = $this->pdo->prepare("
-            INSERT INTO offre (title, area, availability, phone, description, categorie_id)
-            VALUES (:title, :area, :availability, :phone, :description, :categorie_id)
+            INSERT INTO offre (title, area, availability, phone, description, categorie_id, user_id)
+            VALUES (:title, :area, :availability, :phone, :description, :categorie_id, :user_id)
         ");
         $statement->bindValue(':title', $deposerOffre['title'], PDO::PARAM_STR);
         $statement->bindValue(':area', $deposerOffre['area'], PDO::PARAM_STR);
@@ -20,6 +20,7 @@ class DeposerOffreManager extends AbstractManager
         $statement->bindValue(':phone', $deposerOffre['phone'], PDO::PARAM_STR);
         $statement->bindValue(':description', $deposerOffre['description'], PDO::PARAM_STR);
         $statement->bindValue(':categorie_id', $deposerOffre['categorie_id'], PDO::PARAM_INT);
+        $statement->bindValue(':user_id', $_SESSION['user_id'], PDO::PARAM_INT);
         $statement->execute();
     }
 
@@ -41,9 +42,12 @@ class DeposerOffreManager extends AbstractManager
     public function fetchAll(): array
     {
         $query = "SELECT title, phone, O.description AS odescription, 
-        C.description AS cdescription, area, availability, O.id 
-        FROM offre AS O INNER JOIN categorie AS C ON C.id=O.categorie_id";
-        $statement = $this->pdo->query($query);
+                  C.description AS cdescription, area, user_id, availability, O.id 
+                  FROM offre AS O INNER JOIN categorie AS C ON C.id=O.categorie_id 
+                  WHERE user_id = :user_id";
+        $statement = $this->pdo->prepare($query);
+        $statement->bindValue(':user_id', $_SESSION['user_id'], PDO::PARAM_INT);
+        $statement->execute();
         return $statement->fetchAll();
     }
 
@@ -51,7 +55,7 @@ class DeposerOffreManager extends AbstractManager
     public function update(int $id, array $deposerOffre): void
     {
         $query = 'UPDATE offre SET title = :title, area = :area, availability = :availability,
-                  phone = :phone, description = :description
+                  phone = :phone, description = :description, categorie_id = :categorie_id
                   WHERE id = :id';
         $statement = $this->pdo->prepare($query);
         $statement->bindValue(':id', $id, PDO::PARAM_INT);
@@ -60,6 +64,7 @@ class DeposerOffreManager extends AbstractManager
         $statement->bindValue(':availability', $deposerOffre['availability'], PDO::PARAM_STR);
         $statement->bindValue(':phone', $deposerOffre['phone'], PDO::PARAM_STR);
         $statement->bindValue(':description', $deposerOffre['description'], PDO::PARAM_STR);
+        $statement->bindValue(':categorie_id', $deposerOffre['categorie_id'], PDO::PARAM_INT);
         $statement->execute();
     }
 }

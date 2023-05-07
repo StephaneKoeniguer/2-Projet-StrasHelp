@@ -36,6 +36,10 @@ form {
     border-radius: 8px 8px 0 0;
     margin-bottom: 20px;
 }
+.uk-button:hover {
+    background-color: #c31f50;
+    color: var(--text--color);
+}
 
 .uk-select {
     width: 80%;
