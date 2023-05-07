@@ -13,15 +13,15 @@ class MailController extends AbstractController
     private function validateConnexion(): bool
     {
         $this->mail->IsSMTP();
-        $this->mail->Host = 'smtp.free.fr';                    //Adresse IP ou DNS du serveur SMTP
-        $this->mail->Port = 465;                               //Port TCP du serveur SMTP
-        $this->mail->SMTPAuth = true;                          //Utiliser l'identification
+        $this->mail->Host = 'smtp.free.fr';
+        $this->mail->Port = 465;
+        $this->mail->SMTPAuth = true;
         $this->mail->CharSet = 'UTF-8';
-        $this->mail->SMTPSecure = 'ssl';                        //Protocole de sécurisation des échanges avec le SMTP
-        $this->mail->Username   =  '';        //Adresse email à utiliser
-        $this->mail->Password   =  '';                  //Mot de passe de l'adresse email à utiliser
+        $this->mail->SMTPSecure = 'ssl';
+        $this->mail->Username   =  '';                          //Adresse email à utiliser
+        $this->mail->Password   =  '';                          //Mot de passe de l'adresse email à utiliser
 
-        if ($this->mail->smtpConnect()) {                       // Test la connection
+        if ($this->mail->smtpConnect()) {
             return true;
         } else {
             return false;
@@ -34,12 +34,12 @@ class MailController extends AbstractController
         $this->mail = new PHPmailer();
         if ($_SERVER['REQUEST_METHOD'] === 'GET' && $this->validateConnexion() && $this->isValide($_GET)) {
                 $this->mail->From = trim($data['email']);
-                $this->mail->AddAddress('');                  //email du destinataire
-                $this->mail->Subject = ("Formulaire de contact Stras'Help");    //Le sujet du mail
-                $this->mail->WordWrap = 50;                                     //Retour a la ligne automatique
-                $this->mail->AltBody = $data['content'];                        //Texte brut
-                $this->mail->IsHTML(false);                                     //Il faut utiliser le texte brut
-                $this->mail->MsgHTML($data['content']);                         //Forcer le contenu
+                $this->mail->AddAddress('');                                    //email du destinataire
+                $this->mail->Subject = ("Formulaire de contact Stras'Help");
+                $this->mail->WordWrap = 50;
+                $this->mail->AltBody = $data['content'];
+                $this->mail->IsHTML(false);
+                $this->mail->MsgHTML($data['content']);
 
             if (!$this->mail->send()) {
                 $this->errors[] = $this->mail->ErrorInfo;
@@ -52,7 +52,7 @@ class MailController extends AbstractController
         return $this->twig->render('Home/index.html.twig');
     }
 
-    private function isValide(array $data)
+    private function isValide(array $data): bool
     {
         if (!isset($data['name']) || empty($data['name'])) {
             $this->errors[] = "Veuillez saisir un nom";
