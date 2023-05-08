@@ -24,5 +24,4 @@ return [
     'createUser/add' => ['CreateUserController', 'add'],
     'depot/edit' => ['DeposerOffreController', 'redit', ['id']],
     'depot/edit/update' => ['DeposerOffreController', 'edit', ['id']],
-
 ];
