@@ -10,6 +10,10 @@ class MailController extends AbstractController
     private PHPmailer $mail;
     private array $errors;
 
+    /**
+     * Validate connexion serveur SMTP
+     */
+
     private function validateConnexion(): bool
     {
         $this->mail->IsSMTP();
@@ -28,6 +32,9 @@ class MailController extends AbstractController
         }
     }
 
+    /**
+     * Send mail
+     */
     public function mail(): string
     {
         $data = array_map('trim', $_GET);
@@ -52,6 +59,9 @@ class MailController extends AbstractController
         return $this->twig->render('Home/index.html.twig');
     }
 
+    /**
+     * Check if data
+     */
     private function isValide(array $data): bool
     {
         if (!isset($data['name']) || empty($data['name'])) {
