@@ -6,6 +6,9 @@ use App\Model\CreateUserManager;
 
 class CreateUserController extends AbstractController
 {
+    /**
+     * Create a new user
+     */
     public function add(): ?string
     {
         $message = '';

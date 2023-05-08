@@ -21,8 +21,9 @@ return [
     'login' => ['SecurityController', 'login'],
     'logout' => ['SecurityController', 'logout'],
     'dashboard' => ['DashboardController', 'index',],
+    'dashboard/delete' => ['DashboardController', 'delete',['id']],
+    'dashboard/search' => ['DashboardController', 'search'],
     'createUser/add' => ['CreateUserController', 'add'],
     'depot/edit' => ['DeposerOffreController', 'redit', ['id']],
     'depot/edit/update' => ['DeposerOffreController', 'edit', ['id']],
-
 ];

@@ -4,7 +4,9 @@ namespace App\Controller;
 
 class HomeController extends AbstractController
 {
-    // Display home page
+    /**
+     * Display home page
+     */
     public function index($message = null): string
     {
         if ($message) {
