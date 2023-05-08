@@ -1,0 +1,177 @@
+{% extends 'layout.html.twig' %}
+
+{% block stylesheet %}
+{{parent()}}
+<link rel="stylesheet" href="/assets/css/dashboard.css">
+{% endblock %}
+
+{% block content %}
+
+<div class="uk-container uk-container-xlarge">
+    <div class="uk-section uk-text-center uk-padding-remove-top uk-padding-remove-bottom uk-margin-top uk-margin-bottom">
+      <h1 class="uk-heading-medium uk-text-uppercase">Bonjour {{session.login}} !</h1>
+    </div>
+
+<hr class="uk-divider-icon">
+<h2 class="uk-heading-line"><span>Catégories</span></h2>
+
+<div class="uk-container uk-container-small uk-margin-top">
+<table class="uk-table uk-table-hover uk-table-striped uk-table-small uk-width-1-3 uk-align-center">
+    <thead>
+        <tr>
+            <th>Catégorie</th>
+            <th>Nombre d'offres</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for nbOffre in nbOffres %}
+            <tr>
+            <td>{{ nbOffre.description }}</td>
+            <td class="uk-text-right"> {{nbOffre.nombre}}</td>
+            </tr>
+         {% endfor %}
+    </tbody>
+</table>
+
+<hr class="uk-divider-icon uk-width-1-1 uk-align-center">
+
+
+  <form action="categorie/add" method="POST">
+    <fieldset class="uk-fieldset">
+        <legend class="uk-legend uk-width-1-2 uk-align-center uk-margin-remove-bottom">Ajouter une catégorie<span class="uk-margin-left" uk-icon="icon: pencil" uk-tooltip="Ajouter une catégorie"></span></legend>
+        <div >
+            <input class="uk-input uk-width-1-2 uk-align-center" type="text" aria-label="Input" name="categorie">
+        </div>
+        <button class="uk-button uk-width-1-2 uk-align-center">Valider</button>
+    </fieldset>
+  </form>
+</div>
+
+<h2 class="uk-heading-line"><span>Comptes utilisateurs </span></h2>
+
+<div class="uk-container uk-container-small uk-margin-top uk-margin-bottom">
+<table class="uk-table uk-table-hover uk-table-striped uk-table-small uk-width-1-3 uk-align-center">
+    <thead>
+        <tr>
+            <th>Type de compte</th>
+            <th>Nombres</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+        <td>Association</td>
+        <td class="uk-align-right uk-margin-remove"> {{typeComptes[0].nombreAsso}}</td>
+        </tr>
+        <tr>
+        <td>Particulier</td>
+        <td class="uk-align-right uk-margin-remove"> {{typeComptes[0].nombrePart}}</td>
+        </tr>
+  
+    </tbody>
+</table>
+</div>
+
+<h3 class="uk-heading-line uk-text-center"><span>Associations</span></h3>
+<table class="uk-table uk-table-hover uk-table-striped uk-margin-right">
+    <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Description</th>
+            <th class="uk-text-truncate" uk-tooltip="Date de création">Date de création</th>
+            <th>Téléphone</th>
+            <th>Email</th>
+            <th>Adresse</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for association in associations %}
+        <tr>
+        <td class="uk-text-truncate" uk-tooltip="{{association.name}}">{{association.name}}</td>
+        <td class="uk-text-truncate" uk-tooltip="{{association.description}}">{{association.description}}</td>
+        <td uk-tooltip="{{association.dateCreate}}">{{association.dateCreate}}</td>
+        <td>{{association.phone}}</td>
+        <td>{{association.email}}</td>
+        <td class="uk-text-truncate" uk-tooltip="{{association.address}}">{{association.address}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<h3 class="uk-heading-line uk-text-center"><span>Particuliers</span></h3>
+<table class="uk-table uk-table-hover uk-table-striped uk-margin-remove-top">
+    <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Description</th>
+            <th>Téléphone</th>
+            <th>Email</th>
+            <th>Adresse</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for particulier in particuliers %}
+        <tr>
+        <td>{{particulier.name}}</td>
+        <td class="uk-text-truncate" uk-tooltip="{{particulier.description}}">{{particulier.description}}</td>
+        <td>{{particulier.phone}}</td>
+        <td>{{particulier.email}}</td>
+        <td class="uk-text-truncate" uk-tooltip="{{particulier.address}}">{{particulier.address}}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+
+<h2 class="uk-heading-line"><span>Offres</span></h2>
+
+
+ <form action="dashboard/search" method="POST">
+    <fieldset class="uk-fieldset">
+        <legend class="uk-legend uk-width-1-2 uk-align-center uk-margin-remove-bottom">Rechercher<span class="uk-margin-left" uk-icon="icon: search" uk-tooltip="Rechercher"></span></legend>
+        <div >
+            <input class="uk-input uk-width-1-2 uk-align-center" type="text" aria-label="Input" name="filter">
+        </div>
+        <button class="uk-button uk-width-1-2 uk-align-center">Valider</button>
+    </fieldset>
+</form>
+
+<div class="uk-container uk-container-xlarge uk-margin-top">
+<table class="uk-table uk-table-hover uk-table-striped">
+    <thead>
+        <tr>
+            <th>Titre</th>
+            <th>Description</th>
+            <th>Disponibilités</th>
+            <th>Zone d'intervention</th>
+            <th>Catégorie</th>
+            <th>Note moyenne</th>
+            <th>Supprimer</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for offre in offres %}
+        <tr>
+            <td>{{offre.title}}</td>
+            <td class="uk-text-truncate" uk-tooltip="{{offre.description}}">{{offre.description}}</td>
+            <td>{{offre.availability}}</td>
+            <td>{{offre.area}}</td>
+            <td>{{offre.categorie}}</td>
+            <td class="uk-text-right">{{offre.note}}</td>
+            <td class="uk-text-right"><a href="dashboard/delete?id={{offre.id}}" uk-icon="icon: trash" uk-tooltip="Supprimer"></a></td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+</div>
+
+</div>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+<path fill="#8ec475" fill-opacity="1" d="M0,128L48,117.3C96,107,192,85,288,101.3C384,117,480,171,
+576,208C672,245,768,267,864,240C960,213,1056,139,1152,96C1248,53,1344,43,1392,37.3L1440,32L1440,320L1392,
+320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,
+320,48,320L0,320Z"></path></svg>
+
+{% endblock %}
+
+
+ 

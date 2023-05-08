@@ -3,25 +3,43 @@
 namespace App\Controller;
 
 use App\Model\CategorieManager;
+use App\Controller\DashboardController;
 
 class CategorieController extends AbstractController
 {
-    public function index(): string
+    /**
+     * Select categorie
+     */
+    public function index(): array
     {
-        return $this->twig->render('Home/index.html.twig');
+        $categorieManager = new CategorieManager();
+        return $categorieManager->selectCategorie();
     }
 
-    public function add(): ?string
+    /**
+     * Select offre per catégorie
+     */
+    public function countOffrePerCategorie(): array
+    {
+        $categorieManager = new CategorieManager();
+        return $categorieManager->offrePerCategorie();
+    }
+
+    /**
+     * Insert new catégorie
+     */
+    public function add()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $categorie = array_map('trim', $_POST);
+            $categorie = array_filter($categorie);
 
-            $categorieManager = new CategorieManager();
-            $categorieManager->insert($categorie);
+            if (!empty($categorie)) {
+                $categorieManager = new CategorieManager();
+                $categorieManager->insert($categorie);
+            }
 
-            return $this->twig->render('Home/index.html.twig');
+            header('location: /dashboard');
         }
-
-        return $this->twig->render('Home/index.html.twig');
     }
 }

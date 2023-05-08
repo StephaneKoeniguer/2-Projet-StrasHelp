@@ -1,0 +1,16 @@
+.uk-button{
+    border: 1px solid rgba(189,195,199, .8);
+    border-radius: 10px;
+
+    background-color: var(--primary--color);
+    color: var(--white--color);
+}
+
+.uk-button:hover{
+    background-color: #c31f50;
+    color: var(--text--color);
+}
+
+h2{
+    color: var(--secondary--color);
+}

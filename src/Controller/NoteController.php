@@ -36,14 +36,18 @@ class NoteController extends AbstractController
     /**
      * Display alert message
      */
-    private function displayMessage(string $alert, string $message): string
+    private function displayMessage(string $alert, string $messageNote): string
     {
         $offreManager = new OffreManager();
         $offre = $offreManager->selectOffre();
+        $this->noteManager = new NoteManager();
+        $notesAverage = $this->noteManager->noteAverage();
+        $_SESSION['notesAverage'] = $notesAverage;
+
 
         return $this->twig->render(
             'Offre/offre.html.twig',
-            ['offres' => $offre, 'message' => $message, 'alert' => $alert]
+            ['offres' => $offre, 'messageNote' => $messageNote, 'alert' => $alert]
         );
     }
 
@@ -57,7 +61,7 @@ class NoteController extends AbstractController
 
         $note = array_map('trim', $_GET);
         $note['date'] = $date->format('Y/m/d');
-        $message = '';
+        $messageNote = '';
         $alert = '';
 
         if (isset($_SESSION['user_id'])) {
@@ -70,17 +74,17 @@ class NoteController extends AbstractController
             if (isset($note) && !empty($note) && $this->validate($note['user_id'], $note['offre_id']) == false) {
                 $this->noteManager->insert($note);
                 $alert = 'primary';
-                $message = 'Votre note à bien été prise en compte';
-                return $this->displayMessage($alert, $message);
+                $messageNote = 'Votre note à bien été prise en compte';
+                return $this->displayMessage($alert, $messageNote);
             } else {
                 $alert = 'danger';
-                $message = 'Vous avez déja attribué une note à cette offre';
-                return $this->displayMessage($alert, $message);
+                $messageNote = 'Vous avez déja attribué une note à cette offre';
+                return $this->displayMessage($alert, $messageNote);
             }
         } else {
             $alert = 'warning';
-            $message = 'Merci de vous connecter ou de créer un compte';
-            return $this->displayMessage($alert, $message);
+            $messageNote = 'Merci de vous connecter ou de créer un compte';
+            return $this->displayMessage($alert, $messageNote);
         }
     }
 }

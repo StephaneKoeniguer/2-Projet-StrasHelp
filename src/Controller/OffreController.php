@@ -10,6 +10,9 @@ class OffreController extends AbstractController
 {
     private OffreManager $offreManager;
 
+    /**
+     * Display offre page
+     */
     public function index(): string
     {
         $this->initialize();
@@ -69,6 +72,7 @@ class OffreController extends AbstractController
                 }
             }
             $offre = $offreManager->searchOffre($data);
+            $this->initialize();
             return $this->twig->render('Offre/offre.html.twig', ['offres' => $offre]);
         }
     }

@@ -20,4 +20,32 @@ class UserManager extends AbstractManager
 
         return $statement->fetch();
     }
+
+    /**
+     * Get type compte for dashboard
+     */
+    public function selectTypeCompte(): array
+    {
+        $query = 'SELECT
+        (SELECT count(id) FROM association) as nombreAsso,
+        (SELECT count(id) FROM particulier) as nombrePart';
+
+        return $this->pdo->query($query)->fetchAll();
+    }
+
+    /**
+     * Get table particulier for dashboard
+     */
+    public function selectParticulier(): array
+    {
+        return $this->pdo->query('SELECT * FROM particulier')->fetchAll();
+    }
+
+    /**
+     * Get table association for dashboard
+     */
+    public function selectAssociation(): array
+    {
+        return $this->pdo->query('SELECT * FROM association')->fetchAll();
+    }
 }
