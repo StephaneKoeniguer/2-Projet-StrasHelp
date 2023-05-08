@@ -40,7 +40,8 @@ form {
     margin-bottom: 20px;
 }
 .uk-button:hover {
-    background-color: var(--hover--color);
+    background-color: #c31f50;
+    color: var(--text--color);
 }
 
 .uk-select {
