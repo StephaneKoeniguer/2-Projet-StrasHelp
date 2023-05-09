@@ -14,3 +14,7 @@ h1 {
     max-width: 150px;
     overflow: hidden;
 }
+
+p {
+    text-align: center;
+}
