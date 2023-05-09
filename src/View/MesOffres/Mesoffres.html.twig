@@ -12,6 +12,9 @@
  <div class="paragraphe">
       <h1>Mes offres</h1>
     </div>
+{% if offres is empty %}
+ <p>Vous n'avez déposé aucune offre pour le moment</p>
+{% else %}
 
 {% for offre in offres %}
 <div class="uk-overflow-auto">
@@ -44,4 +47,5 @@
 </div>
 </br>
 {% endfor %}
+{% endif %}
 {% endblock %}
