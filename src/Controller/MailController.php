@@ -17,12 +17,12 @@ class MailController extends AbstractController
     private function validateConnexion(): bool
     {
         $this->mail->IsSMTP();
-        $this->mail->Host = 'smtp.free.fr';
+        $this->mail->Host = 'smtp.gmail.com';
         $this->mail->Port = 465;
         $this->mail->SMTPAuth = true;
         $this->mail->CharSet = 'UTF-8';
         $this->mail->SMTPSecure = 'ssl';
-        $this->mail->Username   =  '';                          //Adresse email à utiliser
+        $this->mail->Username   =  'associationstrashelp@gmail.com';                 //Adresse email à utiliser
         $this->mail->Password   =  '';                          //Mot de passe de l'adresse email à utiliser
 
         if ($this->mail->smtpConnect()) {
@@ -39,8 +39,8 @@ class MailController extends AbstractController
     {
         $data = array_map('trim', $_GET);
         $this->mail = new PHPmailer();
-        if ($_SERVER['REQUEST_METHOD'] === 'GET' && $this->validateConnexion() && $this->isValide($_GET)) {
-                $this->mail->From = trim($data['email']);
+        if ($_SERVER['REQUEST_METHOD'] === 'GET' && $this->validateConnexion() && $this->isValide($data)) {
+                $this->mail->From = $data['email'];
                 $this->mail->AddAddress('');                                    //email du destinataire
                 $this->mail->Subject = ("Formulaire de contact Stras'Help");
                 $this->mail->WordWrap = 50;
@@ -64,6 +64,7 @@ class MailController extends AbstractController
      */
     private function isValide(array $data): bool
     {
+        $this->errors[] = '';
         if (!isset($data['name']) || empty($data['name'])) {
             $this->errors[] = "Veuillez saisir un nom";
         }
@@ -74,6 +75,12 @@ class MailController extends AbstractController
             $this->errors[] = "Veuillez saisir votre message";
         }
 
-        return $this->errors ? false : true;
+        $this->errors = array_filter($this->errors);
+
+        if (!empty($this->errors)) {
+            return false;
+        } else {
+            return true;
+        }
     }
 }
