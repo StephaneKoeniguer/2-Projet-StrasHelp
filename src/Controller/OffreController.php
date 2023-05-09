@@ -71,6 +71,7 @@ class OffreController extends AbstractController
                     unset($data[$key]);
                 }
             }
+
             $offre = $offreManager->searchOffre($data);
             $this->initialize();
             return $this->twig->render('Offre/offre.html.twig', ['offres' => $offre]);

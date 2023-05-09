@@ -28,7 +28,8 @@ class CreateUserManager extends AbstractManager
             VALUES (:prenom, :email, :phone, :password, :description, :address, :type)"
             );
         }
-        $password = password_hash($createuser['password'], PASSWORD_BCRYPT);
+
+        $password = md5($createuser['password']);
 
         $statement->bindValue(':prenom', $createuser['prenom'], PDO::PARAM_STR);
         $statement->bindValue(':email', $createuser['email'], PDO::PARAM_STR);
@@ -40,6 +41,19 @@ class CreateUserManager extends AbstractManager
         if ($createuser['type'] === "association") {
             $statement->bindValue(':date', $createuser['date'], PDO::PARAM_STR);
         }
+        $statement->execute();
+    }
+
+    public function createLogin(array $createuser): void
+    {
+
+        $statement = $this->pdo->prepare("INSERT INTO user (login, password) VALUES (:prenom, :password)");
+
+        $password = md5($createuser['password']);
+
+        $statement->bindValue(':prenom', $createuser['prenom'], PDO::PARAM_STR);
+        $statement->bindValue(':password', $password, PDO::PARAM_STR);
+
         $statement->execute();
     }
 }

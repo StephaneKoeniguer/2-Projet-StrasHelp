@@ -18,10 +18,10 @@ class CreateUserController extends AbstractController
 
             $createUserManager = new createUserManager();
             $createUserManager->createUser($createuser);
+            $createUserManager->createLogin($createuser);
 
             $message = "Votre inscription a été enregistrée avec succès!";
 
-            // return $this->twig->render('Home/index.html.twig', ['message' => $message]);
 
             header("Location:/?message=" . $message);
         }

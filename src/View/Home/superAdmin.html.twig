@@ -13,7 +13,7 @@
     </div>
 
 <hr class="uk-divider-icon">
-<h2 class="uk-heading-line"><span>Catégories</span></h2>
+<h2 class="uk-heading-line uk-text-uppercase"><span>Catégories</span></h2>
 
 <div class="uk-container uk-container-small uk-margin-top">
 <table class="uk-table uk-table-hover uk-table-striped uk-table-small uk-width-1-3 uk-align-center">
@@ -35,8 +35,7 @@
 
 <hr class="uk-divider-icon uk-width-1-1 uk-align-center">
 
-
-  <form action="categorie/add" method="POST">
+  <form action="/categorie/add" method="POST">
     <fieldset class="uk-fieldset">
         <legend class="uk-legend uk-width-1-2 uk-align-center uk-margin-remove-bottom">Ajouter une catégorie<span class="uk-margin-left" uk-icon="icon: pencil" uk-tooltip="Ajouter une catégorie"></span></legend>
         <div >
@@ -47,7 +46,7 @@
   </form>
 </div>
 
-<h2 class="uk-heading-line"><span>Comptes utilisateurs </span></h2>
+<h2 class="uk-heading-line uk-text-uppercase"><span>Comptes utilisateurs </span></h2>
 
 <div class="uk-container uk-container-small uk-margin-top uk-margin-bottom">
 <table class="uk-table uk-table-hover uk-table-striped uk-table-small uk-width-1-3 uk-align-center">
@@ -122,10 +121,10 @@
 </table>
 
 
-<h2 class="uk-heading-line"><span>Offres</span></h2>
+<h2 id="offres" class="uk-heading-line uk-text-uppercase"><span>Offres</span></h2>
 
 
- <form action="dashboard/search" method="POST">
+ <form action="/dashboard/search#offres" method="POST">
     <fieldset class="uk-fieldset">
         <legend class="uk-legend uk-width-1-2 uk-align-center uk-margin-remove-bottom">Rechercher<span class="uk-margin-left" uk-icon="icon: search" uk-tooltip="Rechercher"></span></legend>
         <div >
@@ -156,8 +155,8 @@
             <td>{{offre.availability}}</td>
             <td>{{offre.area}}</td>
             <td>{{offre.categorie}}</td>
-            <td class="uk-text-right">{{offre.note}}</td>
-            <td class="uk-text-right"><a href="dashboard/delete?id={{offre.id}}" uk-icon="icon: trash" uk-tooltip="Supprimer"></a></td>
+            <td class="uk-text-center">{{offre.note}}</td>
+            <td class="uk-text-center"><a href="dashboard/delete?id={{offre.id}}" uk-icon="icon: trash" uk-tooltip="Supprimer"></a></td>
         </tr>
     {% endfor %}
     </tbody>

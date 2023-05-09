@@ -30,6 +30,7 @@ class OffreManager extends AbstractManager
         $query = "SELECT *, offre.description FROM offre INNER JOIN categorie on categorie.id = offre.categorie_id
         WHERE ";
 
+        $index = 0;
         foreach ($data as $key => $value) {
             if ('categorie' == $key) {
                 $key =  $key . '.' . 'description';
@@ -39,12 +40,14 @@ class OffreManager extends AbstractManager
 
             $query .= $key . ' = "' . $value . '"';
 
-            $index = 0;
             if ($index < count($data) - 1) {
                    $query .= ' AND ';
                    $index++;
             }
         }
+
+
+
         return $this->pdo->query($query)->fetchAll();
     }
 

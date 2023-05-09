@@ -21,6 +21,12 @@ class DeposerOffreController extends AbstractController
     {
         $message = '';
 
+        if (!isset($_SESSION['user_id']) || $_SESSION['user_id'] == '') {
+            $message = "Veuillez vous connecter afin de déposer une offre";
+            header('location:/?message=' . $message);
+            exit();
+        }
+
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $deposerOffre = array_map('trim', $_POST);
 

@@ -38,7 +38,7 @@ form {
 }
 .uk-button:hover {
     background-color: #c31f50;
-    color: var(--text--color);
+    color: var(--white--color);
 }
 
 .uk-select {

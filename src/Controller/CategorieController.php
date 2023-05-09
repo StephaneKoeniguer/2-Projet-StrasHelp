@@ -37,9 +37,9 @@ class CategorieController extends AbstractController
             if (!empty($categorie)) {
                 $categorieManager = new CategorieManager();
                 $categorieManager->insert($categorie);
+                header('location:/dashboard');
             }
-
-            header('location: /dashboard');
+            header('location:/dashboard');
         }
     }
 }

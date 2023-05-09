@@ -22,10 +22,10 @@ var menuBar = document.querySelector("nav .menu-icon");
 var iconMenu = document.querySelector("nav .menu-icon img");
 
 menuBar.addEventListener("click", function () {
-    if (iconMenu.getAttribute("src") == "assets/images/menu.png") {
-        iconMenu.setAttribute("src", "assets/images/close.png");
+    if (iconMenu.getAttribute("src") == "/assets/images/menu.png") {
+        iconMenu.setAttribute("src", "/assets/images/close.png");
     } else {
-        iconMenu.setAttribute("src", "assets/images/menu.png");
+        iconMenu.setAttribute("src", "/assets/images/menu.png");
     }
 
     menu.classList.toggle("active");
@@ -43,11 +43,15 @@ const particulierRadio = document.querySelector(
 );
 
 // Fonction pour afficher ou masquer le champ de la date
+const date = document.querySelector('#labeldate');
+
 function toggleDateField() {
     if (associationRadio.checked) {
         dateField.style.display = "block";
+        date.style.display = "block"
     } else {
         dateField.style.display = "none";
+        date.style.display = "none"
     }
 }
 
