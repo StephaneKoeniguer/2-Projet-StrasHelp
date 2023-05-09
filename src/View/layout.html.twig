@@ -23,8 +23,8 @@
     {% block header %}{% include 'component/_navbar.html.twig' %}{% endblock %}
     
     {% if message is defined %}
-        <div class="uk-alert uk-alert-success uk-container-small uk-align-center uk-text-center" uk-alert>
-            <a class="uk-alert-close" uk-class></a>
+        <div class="uk-alert uk-alert-{{type}} uk-container-small uk-align-center uk-text-center" uk-alert>
+            <a class="uk-alert-close" uk-close></a>
             {{message}}
         </div>
     {% endif %}        
