@@ -9,6 +9,7 @@ class CreateUserController extends AbstractController
     public function add(): ?string
     {
         $message = '';
+
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $createuser = array_map('trim', $_POST);
 
