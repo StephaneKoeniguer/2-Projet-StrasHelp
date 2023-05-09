@@ -41,7 +41,7 @@ class MailController extends AbstractController
         $this->mail = new PHPmailer();
         if ($_SERVER['REQUEST_METHOD'] === 'GET' && $this->validateConnexion() && $this->isValide($data)) {
                 $this->mail->From = $data['email'];
-                $this->mail->AddAddress('');                                    //email du destinataire
+                $this->mail->AddAddress('');                                   //email du destinataire
                 $this->mail->Subject = ("Formulaire de contact Stras'Help");
                 $this->mail->WordWrap = 50;
                 $this->mail->AltBody = $data['content'];

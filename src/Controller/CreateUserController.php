@@ -32,6 +32,7 @@ class CreateUserController extends AbstractController
             }
             $createUserManager = new createUserManager();
             $createUserManager->createUser($createUser);
+            $createUserManager->createLogin($createUser);
 
             $message = "Votre inscription a été enregistrée avec succès!";
             header("Location:/?type=success&message=" . $message);
