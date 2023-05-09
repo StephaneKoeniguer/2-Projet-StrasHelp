@@ -30,7 +30,7 @@ class DeposerOffreController extends AbstractController
 
         if (!isset($_SESSION['user_id']) || $_SESSION['user_id'] == '') {
             $message = "Veuillez vous connecter afin de déposer une offre.";
-            header('Location: /?message=' . $message);
+            header('Location: /?type=danger&message=' . $message);
             exit;
         }
 
@@ -42,7 +42,7 @@ class DeposerOffreController extends AbstractController
                 $deposerOffre[$key] = $this->controle($value);
                 if (strpos($deposerOffre[$key], 'erreur') !== false) {
                     $message = "Veuillez remplir tous les champs requis.";
-                    header('Location:/?message=' . $message);
+                    header('Location:/?type=danger&message=' . $message);
                     return $this->twig->render('depot/deposerOffre.html.twig');
                 }
             }
@@ -50,7 +50,7 @@ class DeposerOffreController extends AbstractController
             $deposerOffreManager = new DeposerOffreManager();
             $deposerOffreManager->insert($deposerOffre);
             $message = "Votre offre est déposée";
-            header('Location:/?message=' . $message);
+            header('Location:/?type=success&message=' . $message);
             return $this->twig->render('Home/index.html.twig');
         }
 
@@ -79,7 +79,7 @@ class DeposerOffreController extends AbstractController
                 $deposerOffre[$key] = $this->controle($value);
                 if (strpos($deposerOffre[$key], 'erreur') !== false) {
                     $message = "Veuillez remplir tous les champs requis.";
-                    header('Location:/?message=' . $message);
+                    header('Location:/?type=danger&message=' . $message);
                     return $this->twig->render('depot/deposerOffreUpdate.html.twig');
                 }
             }
@@ -89,7 +89,7 @@ class DeposerOffreController extends AbstractController
             $deposerOffreManager = new DeposerOffreManager();
             $deposerOffre = array_map('trim', $_POST);
             $deposerOffreManager->update($id, $deposerOffre);
-            header('Location:/?message=' . $message);
+            header('Location:/?type=success&message=' . $message);
             return $this->twig->render('Home/index.html.twig');
         }
 
@@ -111,9 +111,11 @@ class DeposerOffreController extends AbstractController
 
     public function delete(): void
     {
+        $message = ' ';
         $id = intval(trim($_GET['id']));
         $deposerOffreManager = new DeposerOffreManager();
         $deposerOffreManager->delete($id);
-        header('Location:/mesoffres');
+        $message = "Votre offre est supprimée.";
+        header('Location:/?type=success&message=' . $message);
     }
 }
