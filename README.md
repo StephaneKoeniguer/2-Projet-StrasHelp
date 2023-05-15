@@ -3,7 +3,7 @@
 Le projet Stras'Help est un site qui vise à favoriser les échanges non-marchands de services de proximité (bricolage,cuisine, éducation) entre particuliers.
 Elle propose à ses membres bénévoles de proposer leurs services et à d’autres membres utilisateurs de les solliciter.
 
-# Contexte de développment
+# Contexte de développement
 
 Ce site a été crée sur une période de 4 semaines. Le travail a été fait avec d'autres camarades. L'objectif était de créer une plateforme d'échange de service.
 
