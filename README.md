@@ -1,79 +1,68 @@
-# Simple MVC
+# Stras'Help
 
-## Description
+Le projet Stras'Help est un site qui vise à favoriser les échanges non-marchands de services de proximité (bricolage,cuisine, éducation) entre particuliers.
+Elle propose à ses membres bénévoles de proposer leurs services et à d’autres membres utilisateurs de les solliciter.
 
-This repository is a simple PHP MVC structure from scratch.
+# Contexte de développment
 
-It uses some cool vendors/libraries such as Twig and Grumphp.
-For this one, just a simple example where users can choose one of their databases and see tables in it.
+Ce site a été crée sur une période de 4 semaines. Le travail a été fait avec d'autres camarades. L'objectif était de créer une plateforme d'échange de service.
 
-## Steps
+# Les objectifs du site
 
-1. Clone the repo from Github.
-2. Run `composer install`.
-3. Create _config/db.php_ from _config/db.php.dist_ file and add your DB parameters. Don't delete the _.dist_ file, it must be kept.
+* Déposer des offres de services (coordonnées, catégories, disponibilités, zones d’intervention)
+* Rechercher parmi les offres et prises de contact
+* BO gestion des offres
 
-```php
-define('APP_DB_HOST', 'your_db_host');
-define('APP_DB_NAME', 'your_db_name');
-define('APP_DB_USER', 'your_db_user_wich_is_not_root');
-define('APP_DB_PASSWORD', 'your_db_password');
-```
+# Contributions
 
-4. Import _database.sql_ in your SQL server, you can do it manually or use the _migration.php_ script which will import a _database.sql_ file.
-5. Run the internal PHP webserver with `php -S localhost:8000 -t public/`. The option `-t` with `public` as parameter means your localhost will target the `/public` folder.
-6. Go to `localhost:8000` with your favorite browser.
-7. From this starter kit, create your own web application.
+J'ai travaillé principalement sur:
 
-### Windows Users
+* La création du wireframe sur Figma
+* La gestion du projet sur Trello
+* La page de recherche des offres
+* La gestion du système de notation
+* Le dashboard administrateur
+* le système d'envoi de mail
+* La création du Mcd / Mld
 
-If you develop on Windows, you should edit you git configuration to change your end of line rules with this command :
+# Technologies utilisées 
 
-`git config --global core.autocrlf true`
+* HTML / CSS
+* Javascript
+* Php / Twig
+* MySQL
+* Git / Github
 
-## Example
+# Captures d'écran
 
-An example (a basic list of items) is provided (you can load the _simple-mvc.sql_ file in a test database). The accessible URLs are :
+* La page d'accueil
 
--   Home page at [localhost:8000/](localhost:8000/)
--   Items list at [localhost:8000/items](localhost:8000/items)
--   Item details [localhost:8000/items/show?id=:id](localhost:8000/item/show?id=2)
--   Item edit [localhost:8000/items/edit?id=:id](localhost:8000/items/edit?id=2)
--   Item add [localhost:8000/items/add](localhost:8000/items/add)
--   Item deletion [localhost:8000/items/delete?id=:id](localhost:8000/items/delete?id=2)
+![Capture d’écran 2023-05-15 à 15 11 09](https://github.com/StephaneKoeniguer/StrasHelp/assets/103316525/35044518-e848-4523-8ddc-646791662950)
+![Capture d’écran 2023-05-15 à 15 11 47](https://github.com/StephaneKoeniguer/StrasHelp/assets/103316525/69fb8eda-d4d3-4c8c-a8a1-21059967eeb5)
+![Capture d’écran 2023-05-15 à 15 12 02](https://github.com/StephaneKoeniguer/StrasHelp/assets/103316525/0b9300a6-df77-4edd-abe0-3aa51d68bece)
+![Capture d’écran 2023-05-15 à 15 12 12](https://github.com/StephaneKoeniguer/StrasHelp/assets/103316525/33cb12ba-650e-46ee-9e3b-f259f76287c8)
+![Capture d’écran 2023-05-15 à 15 12 24](https://github.com/StephaneKoeniguer/StrasHelp/assets/103316525/a18a3e2f-3a36-46c2-9fd5-fa2a8ae29568)
+![Capture d’écran 2023-05-15 à 15 12 44](https://github.com/StephaneKoeniguer/StrasHelp/assets/103316525/a6c979cc-575a-4ce9-a8f3-c53300de5f70)
 
-You can find all these routes declared in the file `src/routes.php`. This is the very same file where you'll add your own new routes to the application.
+* La page de recherche de services
 
-## How does URL routing work ?
+![Capture d’écran 2023-05-15 à 15 09 46](https://github.com/StephaneKoeniguer/StrasHelp/assets/103316525/a42c00e4-37a7-40ee-9f03-b70509c5b6c8)
+![Capture d’écran 2023-05-15 à 15 15 20](https://github.com/StephaneKoeniguer/StrasHelp/assets/103316525/bc9902b3-ae9f-495a-9a14-642cbc2d7da4)
 
-![simple_MVC.png](.tours/simple_MVC.png)
+* Version mobile
 
-## Ask for a tour !
+![Capture d’écran 2023-05-15 à 15 20 15](https://github.com/StephaneKoeniguer/StrasHelp/assets/103316525/179068ba-09f6-48a0-ab02-3e2b17337e98)
 
-<img src="./.tours/photo-1632178151697-fd971baa906f.jpg" alt="Guided tour" width="150"/>
 
-We prepare a little guided tour to start with the simple-MVC.
+* Le dashboard Administrateur
 
-To take it, you need to install the `Code Tour` extension for Visual Studio Code : [Code Tour](https://marketplace.visualstudio.com/items?itemName=vsls-contrib.codetour)
+![Capture d’écran 2023-05-15 à 15 13 36](https://github.com/StephaneKoeniguer/StrasHelp/assets/103316525/668e962f-efb4-45e8-baf0-15f4c0e7d0b1)
+![Capture d’écran 2023-05-15 à 15 14 02](https://github.com/StephaneKoeniguer/StrasHelp/assets/103316525/20768c3e-7c55-4f50-a5e6-d7cb546f0205)
+![Capture d’écran 2023-05-15 à 15 14 15](https://github.com/StephaneKoeniguer/StrasHelp/assets/103316525/3fa11409-a730-47db-b5d7-de432f019058)
 
-It will give access to a new menu on your IDE where you'll find the different tours about the simple-MVC. Click on play to start one :
+# Annexe 
 
-![menu](.tours/code_tour_menu.png)
-
-## Run it on docker
-
-If you don't know what is docker, skip this chapter. ;)
-
-Otherwise, you probably see, this project is ready to use with docker.
-
-To build the image, go into the project directory and in your CLI type:
-
-```
-docker build -t simple-mvc-container .
-```
-
-then, run it to open it on your localhot :
-
-```
-docker run -i -t --name simple-mvc  -p 80:80 simple-mvc-container
-```
+* [Wireframe Mobile](https://drive.google.com/file/d/1yPzMp6dcqr1-Xetz7wXfGexLFB_Ckstr/view?usp=share_link)
+* [Wireframe Desktop](https://drive.google.com/file/d/1FSMX_hAk6lRgqX-ivBr_wtv-edO6SSOx/view?usp=share_link)
+* [MLD](https://drive.google.com/file/d/1xCWP_kpH3ObzZIvf5unA-Yz2_XcapCz1/view?usp=share_link)
+* [Cahier des charges](https://drive.google.com/file/d/1QxZTEs9WQivokBFRYdNL2q5K2BVjUErB/view?usp=share_link)
